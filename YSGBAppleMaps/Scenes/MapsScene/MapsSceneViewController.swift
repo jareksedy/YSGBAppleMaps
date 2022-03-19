@@ -20,10 +20,12 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 // MARK: - Additional extensions
 
 // MARK: - View controller
-class MapsSceneViewController: UIViewController {
-    lazy var presenter = MapsScenePresenter()
+class MapsSceneViewController: UIViewController, CLLocationManagerDelegate {
+    lazy var presenter = MapsScenePresenter(locationManager: locationManager)
     
     // MARK: - Properties
+    let locationManager = CLLocationManager()
+    
     var isTracking: Bool = false {
         didSet {
             UIView.animate(withDuration: 0.25) {
@@ -53,7 +55,8 @@ class MapsSceneViewController: UIViewController {
     }
     
     // MARK: - Methods
-    private func setupUI() {
+    private func setupScene() {
+        presenter.configureLocationManager()
     }
     
     // MARK: - Outlets
@@ -76,6 +79,6 @@ class MapsSceneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDelegate = self
-        setupUI()
+        setupScene()
     }
 }
