@@ -14,6 +14,7 @@
 		CA120E4627E57A9800694B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E4427E57A9800694B83 /* LaunchScreen.storyboard */; };
 		CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5227E5814700694B83 /* MapsSceneViewController.swift */; };
 		CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */; };
+		CA120E5727E59DD200694B83 /* RotatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* RotatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CA120E4727E57A9800694B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA120E5227E5814700694B83 /* MapsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSceneViewController.swift; sourceTree = "<group>"; };
 		CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScenePresenter.swift; sourceTree = "<group>"; };
+		CA120E5627E59DD200694B83 /* RotatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				CA120E3927E57A9700694B83 /* AppDelegate.swift */,
 				CA120E3B27E57A9700694B83 /* SceneDelegate.swift */,
+				CA120E5627E59DD200694B83 /* RotatingButton.swift */,
 				CA120E5027E5812100694B83 /* Scenes */,
 				CA120E4D27E57FC700694B83 /* Storyboards */,
 				CA120E4E27E57FD300694B83 /* Resources */,
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA120E5727E59DD200694B83 /* RotatingButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,
@@ -260,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

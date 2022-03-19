@@ -28,19 +28,8 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupUI() {
-        startStopTrackingButton.backgroundColor = UIColor.white.withAlphaComponent(0.95)
-        startStopTrackingButton.layer.cornerRadius = 50
-        startStopTrackingButton.layer.shadowColor = UIColor.black.cgColor
-        startStopTrackingButton.layer.shadowOpacity = 0.25
-        startStopTrackingButton.layer.shadowOffset = .zero
-        startStopTrackingButton.layer.shadowRadius = 5
-        
-        showPreviousRouteButton.backgroundColor = UIColor.white.withAlphaComponent(0.95)
-        showPreviousRouteButton.layer.cornerRadius = 25
-        showPreviousRouteButton.layer.shadowColor = UIColor.black.cgColor
-        showPreviousRouteButton.layer.shadowOpacity = 0.25
-        showPreviousRouteButton.layer.shadowOffset = .zero
-        showPreviousRouteButton.layer.shadowRadius = 5
+        startStopTrackingButton.layer.cornerRadius = startStopTrackingButton.frame.width / 2
+        showPreviousRouteButton.layer.cornerRadius = showPreviousRouteButton.frame.width / 2
     }
 
     // MARK: - Outlets
