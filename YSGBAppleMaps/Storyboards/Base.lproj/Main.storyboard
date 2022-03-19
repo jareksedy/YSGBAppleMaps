@@ -19,18 +19,32 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kge-vI-XqW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC">
+                                <rect key="frame" x="157" y="712" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZQV-xC-7Bk"/>
+                                    <constraint firstAttribute="width" secondItem="nxg-Dj-aZC" secondAttribute="height" multiplier="1:1" id="cbG-F9-Ssy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="32" weight="semibold"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6cJ-nE-G4c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nxg-Dj-aZC" secondAttribute="bottom" constant="50" id="CEp-Uw-Qd9"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fw6-jg-dtU"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RcU-T1-gv0"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UMi-SG-MaE"/>
                             <constraint firstAttribute="bottom" secondItem="Kge-vI-XqW" secondAttribute="bottom" id="giR-Vt-jQ4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
+                        <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -39,6 +53,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

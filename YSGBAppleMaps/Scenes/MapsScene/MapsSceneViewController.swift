@@ -25,10 +25,18 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupUI() {
+        startStopTrackingButton.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        startStopTrackingButton.layer.cornerRadius = 50
+        startStopTrackingButton.layer.shadowColor = UIColor.black.cgColor
+        startStopTrackingButton.layer.shadowOpacity = 0.25
+        startStopTrackingButton.layer.shadowOffset = .zero
+        startStopTrackingButton.layer.shadowRadius = 5
     }
 
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var startStopTrackingButton: UIButton!
+    
     
     // MARK: - Actions
     
