@@ -24,12 +24,38 @@ class MapsSceneViewController: UIViewController {
     lazy var presenter = MapsScenePresenter()
     
     // MARK: - Properties
-    var isTracking: Bool = false
+    var isTracking: Bool = false {
+        didSet {
+            UIView.animate(withDuration: 0.25) {
+                if self.isTracking {
+                    self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: (.pi / 4) * 3)
+                    self.startStopTrackingButton.tintColor = UIColor.systemRed
+                } else {
+                    self.startStopTrackingButton.transform = .identity
+                    self.startStopTrackingButton.tintColor = UIColor.tintColor
+                }
+            }
+        }
+    }
+    
+    var isShowingPreviousRoute: Bool = false {
+        didSet {
+            UIView.animate(withDuration: 0.25) {
+                if self.isShowingPreviousRoute {
+                    self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: (.pi / 4) * 3)
+                    self.showPreviousRouteButton.tintColor = UIColor.systemRed
+                } else {
+                    self.showPreviousRouteButton.transform = .identity
+                    self.showPreviousRouteButton.tintColor = UIColor.tintColor
+                }
+            }
+        }
+    }
     
     // MARK: - Methods
     private func setupUI() {
     }
-
+    
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopTrackingButton: UIButton!
@@ -38,19 +64,10 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
         isTracking.toggle()
-        
-        UIView.animate(withDuration: 0.25) {
-            if self.isTracking {
-                self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: (CGFloat.pi / 4) * 3)
-                self.startStopTrackingButton.tintColor = UIColor.systemRed
-            } else {
-                self.startStopTrackingButton.transform = .identity
-                self.startStopTrackingButton.tintColor = UIColor.tintColor
-            }
-        }
     }
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
+        isShowingPreviousRoute.toggle()
     }
     
     // MARK: - Selectors
