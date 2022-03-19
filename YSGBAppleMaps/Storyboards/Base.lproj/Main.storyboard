@@ -26,9 +26,12 @@
                                     <constraint firstAttribute="width" secondItem="nxg-Dj-aZC" secondAttribute="height" multiplier="1:1" id="cbG-F9-Ssy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24" weight="semibold"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="48" weight="light"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="startStopTrackingButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pXu-1f-6PQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1u-vC-Cdw">
                                 <rect key="frame" x="182" y="662" width="50" height="50"/>
@@ -40,6 +43,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="point.topleft.down.curvedto.point.bottomright.up" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="14" weight="bold"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="showPreviousRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udt-ZS-zw6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -67,7 +73,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="point.topleft.down.curvedto.point.bottomright.up" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
