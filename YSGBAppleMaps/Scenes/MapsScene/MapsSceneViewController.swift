@@ -30,7 +30,7 @@ class MapsSceneViewController: UIViewController, CLLocationManagerDelegate {
         didSet {
             UIView.animate(withDuration: 0.25) {
                 if self.isTracking {
-                    self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: (.pi / 4) * 3)
+                    self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: .pi / 4 * 3)
                     self.startStopTrackingButton.tintColor = UIColor.systemRed
                 } else {
                     self.startStopTrackingButton.transform = .identity
@@ -44,7 +44,7 @@ class MapsSceneViewController: UIViewController, CLLocationManagerDelegate {
         didSet {
             UIView.animate(withDuration: 0.25) {
                 if self.isShowingPreviousRoute {
-                    self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: (.pi / 4) * 3)
+                    self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: .pi / 4 * 3)
                     self.showPreviousRouteButton.tintColor = UIColor.systemRed
                 } else {
                     self.showPreviousRouteButton.transform = .identity
