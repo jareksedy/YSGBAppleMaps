@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
@@ -26,6 +28,7 @@ class MapsSceneViewController: UIViewController {
     }
 
     // MARK: - Outlets
+    @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Actions
     
