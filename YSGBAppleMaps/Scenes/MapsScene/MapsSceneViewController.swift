@@ -18,9 +18,20 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 }
 
 // MARK: - Additional extensions
+extension MapsSceneViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            mapView.zoomToLocation(location, regionRadius: 800)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
 
 // MARK: - View controller
-class MapsSceneViewController: UIViewController, CLLocationManagerDelegate {
+class MapsSceneViewController: UIViewController {
     lazy var presenter = MapsScenePresenter(locationManager: locationManager)
     
     // MARK: - Properties
@@ -57,6 +68,7 @@ class MapsSceneViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Methods
     private func setupScene() {
         presenter.configureLocationManager()
+        mapView.showsUserLocation = true
     }
     
     // MARK: - Outlets
