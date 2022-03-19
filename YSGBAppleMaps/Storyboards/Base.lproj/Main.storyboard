@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC">
-                                <rect key="frame" x="157" y="712" width="100" height="100"/>
+                                <rect key="frame" x="157" y="737" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ZQV-xC-7Bk"/>
                                     <constraint firstAttribute="width" secondItem="nxg-Dj-aZC" secondAttribute="height" multiplier="1:1" id="cbG-F9-Ssy"/>
@@ -30,20 +30,34 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="32" weight="semibold"/>
                                 </buttonConfiguration>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1u-vC-Cdw">
+                                <rect key="frame" x="182" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5gv-y0-FW1"/>
+                                    <constraint firstAttribute="width" secondItem="r1u-vC-Cdw" secondAttribute="height" multiplier="1:1" id="U8m-aG-OvG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="point.topleft.down.curvedto.point.bottomright.up" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" weight="bold"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6cJ-nE-G4c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nxg-Dj-aZC" secondAttribute="bottom" constant="50" id="CEp-Uw-Qd9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nxg-Dj-aZC" secondAttribute="bottom" constant="25" id="CEp-Uw-Qd9"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fw6-jg-dtU"/>
-                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RcU-T1-gv0"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UMi-SG-MaE"/>
+                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cqn-Ur-ByY"/>
                             <constraint firstAttribute="bottom" secondItem="Kge-vI-XqW" secondAttribute="bottom" id="giR-Vt-jQ4"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnn-YP-yql"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
+                        <outlet property="showPreviousRouteButton" destination="r1u-vC-Cdw" id="ZJx-9k-wGq"/>
                         <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>
                     </connections>
                 </viewController>
@@ -54,6 +68,7 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="point.topleft.down.curvedto.point.bottomright.up" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

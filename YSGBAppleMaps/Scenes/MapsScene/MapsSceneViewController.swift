@@ -31,11 +31,19 @@ class MapsSceneViewController: UIViewController {
         startStopTrackingButton.layer.shadowOpacity = 0.25
         startStopTrackingButton.layer.shadowOffset = .zero
         startStopTrackingButton.layer.shadowRadius = 5
+        
+        showPreviousRouteButton.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        showPreviousRouteButton.layer.cornerRadius = 25
+        showPreviousRouteButton.layer.shadowColor = UIColor.black.cgColor
+        showPreviousRouteButton.layer.shadowOpacity = 0.25
+        showPreviousRouteButton.layer.shadowOffset = .zero
+        showPreviousRouteButton.layer.shadowRadius = 5
     }
 
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopTrackingButton: UIButton!
+    @IBOutlet weak var showPreviousRouteButton: UIButton!
     
     
     // MARK: - Actions
