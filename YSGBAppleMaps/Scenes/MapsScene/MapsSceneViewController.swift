@@ -28,8 +28,6 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupUI() {
-        startStopTrackingButton.layer.cornerRadius = startStopTrackingButton.frame.width / 2
-        showPreviousRouteButton.layer.cornerRadius = showPreviousRouteButton.frame.width / 2
     }
 
     // MARK: - Outlets

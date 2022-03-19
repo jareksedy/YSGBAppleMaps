@@ -8,6 +8,12 @@
 import UIKit
 
 class CircularButton: UIButton {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        layer.cornerRadius = self.frame.width / 2
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -17,16 +23,5 @@ class CircularButton: UIButton {
         layer.shadowOpacity = 0.25
         layer.shadowOffset = .zero
         layer.shadowRadius = 5
-        
-       // addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
-       // addTarget(self, action: #selector(animateUp), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
-    }
-    
-    @objc private func animateDown(sender: UIButton) {
-        alpha = 0.9
-    }
-    
-    @objc private func animateUp(sender: UIButton) {
-        alpha = 1
     }
 }
