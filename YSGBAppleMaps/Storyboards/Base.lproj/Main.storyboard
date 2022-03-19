@@ -22,23 +22,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC">
                                 <rect key="frame" x="157" y="737" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ZQV-xC-7Bk"/>
+                                    <constraint firstAttribute="height" constant="100" id="AZW-EH-Wgq"/>
                                     <constraint firstAttribute="width" secondItem="nxg-Dj-aZC" secondAttribute="height" multiplier="1:1" id="cbG-F9-Ssy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="32" weight="semibold"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24" weight="semibold"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1u-vC-Cdw">
                                 <rect key="frame" x="182" y="662" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="5gv-y0-FW1"/>
+                                    <constraint firstAttribute="height" constant="50" id="OHH-Tq-v38"/>
                                     <constraint firstAttribute="width" secondItem="r1u-vC-Cdw" secondAttribute="height" multiplier="1:1" id="U8m-aG-OvG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="point.topleft.down.curvedto.point.bottomright.up" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" weight="bold"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="14" weight="bold"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
