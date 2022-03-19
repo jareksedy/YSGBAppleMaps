@@ -14,7 +14,7 @@
 		CA120E4627E57A9800694B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E4427E57A9800694B83 /* LaunchScreen.storyboard */; };
 		CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5227E5814700694B83 /* MapsSceneViewController.swift */; };
 		CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */; };
-		CA120E5727E59DD200694B83 /* RotatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* RotatingButton.swift */; };
+		CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* CircularButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		CA120E4727E57A9800694B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA120E5227E5814700694B83 /* MapsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSceneViewController.swift; sourceTree = "<group>"; };
 		CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScenePresenter.swift; sourceTree = "<group>"; };
-		CA120E5627E59DD200694B83 /* RotatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingButton.swift; sourceTree = "<group>"; };
+		CA120E5627E59DD200694B83 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 			children = (
 				CA120E3927E57A9700694B83 /* AppDelegate.swift */,
 				CA120E3B27E57A9700694B83 /* SceneDelegate.swift */,
-				CA120E5627E59DD200694B83 /* RotatingButton.swift */,
+				CA120E5827E5F81100694B83 /* UIComponents */,
 				CA120E5027E5812100694B83 /* Scenes */,
 				CA120E4D27E57FC700694B83 /* Storyboards */,
 				CA120E4E27E57FD300694B83 /* Resources */,
@@ -111,6 +111,14 @@
 				CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */,
 			);
 			path = MapsScene;
+			sourceTree = "<group>";
+		};
+		CA120E5827E5F81100694B83 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E5627E59DD200694B83 /* CircularButton.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA120E5727E59DD200694B83 /* RotatingButton.swift in Sources */,
+				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,

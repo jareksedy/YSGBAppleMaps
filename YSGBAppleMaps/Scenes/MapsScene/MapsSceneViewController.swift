@@ -43,7 +43,7 @@ class MapsSceneViewController: UIViewController {
         
         UIView.animate(withDuration: 0.25) {
             if self.isTracking {
-                self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 4)
+                self.startStopTrackingButton.transform = CGAffineTransform(rotationAngle: (CGFloat.pi / 4) * 3)
                 self.startStopTrackingButton.tintColor = UIColor.systemRed
             } else {
                 self.startStopTrackingButton.transform = .identity
