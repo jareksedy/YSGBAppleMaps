@@ -21,7 +21,7 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.zoomToLocation(location, regionRadius: 800)
+            mapView.zoomToLocation(location, regionRadius: 200)
         }
     }
     
@@ -68,6 +68,8 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Methods
     private func setupScene() {
         presenter.configureLocationManager()
+        
+        mapView.isZoomEnabled = false
         mapView.showsUserLocation = true
     }
     

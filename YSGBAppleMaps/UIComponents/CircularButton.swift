@@ -17,7 +17,7 @@ class CircularButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        backgroundColor = UIColor.white.withAlphaComponent(0.85)
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.25
