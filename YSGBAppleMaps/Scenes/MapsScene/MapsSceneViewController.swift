@@ -60,7 +60,7 @@ class MapsSceneViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     // MARK: - Properties
-    var zoomValue: Double = 200
+    var zoomValue: Double = 300
     var lastLocation: CLLocation?
     
     var isTracking: Bool = false {
@@ -125,7 +125,7 @@ class MapsSceneViewController: UIViewController {
     }
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {
-        guard zoomValue > 100 else { return }
+        guard zoomValue > 200 else { return }
         
         zoomValue -= 200
         
