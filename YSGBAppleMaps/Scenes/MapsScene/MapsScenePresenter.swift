@@ -31,11 +31,11 @@ final class MapsScenePresenter {
     }
     
     func startTracking() {
-        
     }
     
     func stopTracking() {
         coordinates = []
+        viewDelegate?.removeAllOverlays()
     }
     
     func addCoordinate(_ coordinate: CLLocationCoordinate2D) {

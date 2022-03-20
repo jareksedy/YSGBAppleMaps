@@ -11,10 +11,14 @@ import CoreLocation
 
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
+    func removeAllOverlays()
 }
 
 // MARK: - Implementation
 extension MapsSceneViewController: MapsSceneViewDelegate {
+    func removeAllOverlays() {
+        mapView.removeOverlays(mapView.overlays)
+    }
 }
 
 // MARK: - Additional extensions
