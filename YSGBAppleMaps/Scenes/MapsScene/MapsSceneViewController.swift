@@ -41,7 +41,7 @@ extension MapsSceneViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
         
-        polyLineRenderer.strokeColor = .tintColor.withAlphaComponent(0.25)
+        polyLineRenderer.strokeColor = .tintColor
         polyLineRenderer.lineWidth = 10
         
         return polyLineRenderer
@@ -122,7 +122,7 @@ class MapsSceneViewController: UIViewController {
     @IBAction func zoomOutButtonTapped(_ sender: Any) {
         guard zoomValue < 100_000 else { return }
         
-        zoomValue += zoomValue
+        zoomValue += 300
         
         if let lastLocation = lastLocation {
             mapView.zoomToLocation(lastLocation, regionRadius: zoomValue)
