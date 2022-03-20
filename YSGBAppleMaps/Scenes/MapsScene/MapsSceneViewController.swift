@@ -107,20 +107,25 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
         isTracking.toggle()
+        isShowingPreviousRoute = false
         
-        if isTracking {
-            presenter.startTracking()
-        } else {
-            presenter.stopTracking()
-        }
+        if isTracking { presenter.startTracking() } else { presenter.stopTracking() }
     }
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
-        isShowingPreviousRoute.toggle()
+        if isTracking {
+            self.yesNoAlert(title: "Прервать отслеживание?",
+                            message: "Для отображения маршрута необходимо прервать отслеживание.") { _ in
+                self.isTracking = false
+                self.isShowingPreviousRoute.toggle()
+            }
+        } else {
+            isShowingPreviousRoute.toggle()
+        }
     }
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {
-        guard zoomValue > 200 else { return }
+        guard zoomValue > 100 else { return }
         
         zoomValue -= 200
         
