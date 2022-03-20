@@ -21,12 +21,14 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            presenter.addCoordinateToArray(location.coordinate)
-            mapView.zoomToLocation(location, regionRadius: 200)
+            mapView.zoomToLocation(location, regionRadius: zoomValue)
+            lastLocation = location
             
-            let myRoutePolyLine = MKPolyline(coordinates: presenter.coordinates, count: presenter.coordinates.count)
-            mapView.addOverlay(myRoutePolyLine)
-            
+            if isTracking {
+                presenter.addCoordinate(location.coordinate)
+                let myRoutePolyLine = MKPolyline(coordinates: presenter.coordinates, count: presenter.coordinates.count)
+                mapView.addOverlay(myRoutePolyLine)
+            }
         }
     }
     
@@ -39,8 +41,9 @@ extension MapsSceneViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
         
-        polyLineRenderer.strokeColor = .tintColor.withAlphaComponent(0.15)
-        polyLineRenderer.lineWidth = 5
+        polyLineRenderer.strokeColor = .tintColor.withAlphaComponent(0.25)
+        polyLineRenderer.lineWidth = 10
+        
         return polyLineRenderer
     }
 }
@@ -49,8 +52,12 @@ extension MapsSceneViewController: MKMapViewDelegate {
 class MapsSceneViewController: UIViewController {
     lazy var presenter = MapsScenePresenter(locationManager: locationManager)
     
-    // MARK: - Properties
+    // MARK: - Services
     let locationManager = CLLocationManager()
+    
+    // MARK: - Properties
+    var zoomValue: Double = 200
+    var lastLocation: CLLocation?
     
     var isTracking: Bool = false {
         didSet {
@@ -83,16 +90,15 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Methods
     private func setupScene() {
         presenter.configureLocationManager()
-        
-        mapView.isZoomEnabled = false
-        mapView.showsUserLocation = true
         mapView.delegate = self
     }
     
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var startStopTrackingButton: UIButton!
-    @IBOutlet weak var showPreviousRouteButton: UIButton!
+    @IBOutlet weak var startStopTrackingButton: CircularButton!
+    @IBOutlet weak var showPreviousRouteButton: CircularButton!
+    @IBOutlet weak var zoomInButton: CircularButton!
+    @IBOutlet weak var zoomOutButton: CircularButton!
     
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
@@ -101,6 +107,26 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
         isShowingPreviousRoute.toggle()
+    }
+    
+    @IBAction func zoomInButtonTapped(_ sender: Any) {
+        guard zoomValue > 100 else { return }
+        
+        zoomValue -= 100
+        
+        if let lastLocation = lastLocation {
+            mapView.zoomToLocation(lastLocation, regionRadius: zoomValue)
+        }
+    }
+    
+    @IBAction func zoomOutButtonTapped(_ sender: Any) {
+        guard zoomValue < 10_000 else { return }
+        
+        zoomValue += 200
+        
+        if let lastLocation = lastLocation {
+            mapView.zoomToLocation(lastLocation, regionRadius: zoomValue)
+        }
     }
     
     // MARK: - Selectors

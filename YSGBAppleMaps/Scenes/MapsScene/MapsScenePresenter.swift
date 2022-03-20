@@ -14,7 +14,6 @@ final class MapsScenePresenter {
     
     // MARK: - Public properties
     var coordinates: [CLLocationCoordinate2D] = []
-
     
     // MARK: - Services
     private let locationManager: CLLocationManager
@@ -31,7 +30,7 @@ final class MapsScenePresenter {
         locationManager.startUpdatingLocation()
     }
     
-    func addCoordinateToArray(_ coordinate: CLLocationCoordinate2D) {
-        coordinates.append(coordinate)
+    func addCoordinate(_ coordinate: CLLocationCoordinate2D) {
+        coordinates.insert(coordinate, at: coordinates.count)
     }
 }
