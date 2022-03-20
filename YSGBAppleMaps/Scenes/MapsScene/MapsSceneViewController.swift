@@ -110,9 +110,9 @@ class MapsSceneViewController: UIViewController {
     }
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {
-        guard zoomValue > 100 else { return }
+        guard zoomValue > 200 else { return }
         
-        zoomValue -= 100
+        zoomValue -= 200
         
         if let lastLocation = lastLocation {
             mapView.zoomToLocation(lastLocation, regionRadius: zoomValue)
@@ -120,9 +120,9 @@ class MapsSceneViewController: UIViewController {
     }
     
     @IBAction func zoomOutButtonTapped(_ sender: Any) {
-        guard zoomValue < 10_000 else { return }
+        guard zoomValue < 100_000 else { return }
         
-        zoomValue += 200
+        zoomValue += zoomValue
         
         if let lastLocation = lastLocation {
             mapView.zoomToLocation(lastLocation, regionRadius: zoomValue)
