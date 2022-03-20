@@ -30,6 +30,14 @@ final class MapsScenePresenter {
         locationManager.startUpdatingLocation()
     }
     
+    func startTracking() {
+        
+    }
+    
+    func stopTracking() {
+        coordinates = []
+    }
+    
     func addCoordinate(_ coordinate: CLLocationCoordinate2D) {
         coordinates.insert(coordinate, at: coordinates.count)
     }

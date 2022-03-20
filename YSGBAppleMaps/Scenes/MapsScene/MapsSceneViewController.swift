@@ -103,6 +103,12 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
         isTracking.toggle()
+        
+        if isTracking {
+            presenter.startTracking()
+        } else {
+            presenter.stopTracking()
+        }
     }
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
