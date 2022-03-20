@@ -20,13 +20,28 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 // MARK: - Additional extensions
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
+        if let location = locations.last {
+            presenter.addCoordinateToArray(location.coordinate)
             mapView.zoomToLocation(location, regionRadius: 200)
+            
+            let myRoutePolyLine = MKPolyline(coordinates: presenter.coordinates, count: presenter.coordinates.count)
+            mapView.addOverlay(myRoutePolyLine)
+            
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+    }
+}
+
+extension MapsSceneViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
+        
+        polyLineRenderer.strokeColor = .tintColor.withAlphaComponent(0.15)
+        polyLineRenderer.lineWidth = 5
+        return polyLineRenderer
     }
 }
 
@@ -71,6 +86,7 @@ class MapsSceneViewController: UIViewController {
         
         mapView.isZoomEnabled = false
         mapView.showsUserLocation = true
+        mapView.delegate = self
     }
     
     // MARK: - Outlets

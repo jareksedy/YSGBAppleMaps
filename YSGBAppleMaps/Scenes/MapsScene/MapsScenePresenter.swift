@@ -12,6 +12,10 @@ import CoreLocation
 final class MapsScenePresenter {
     weak var viewDelegate: MapsSceneViewDelegate?
     
+    // MARK: - Public properties
+    var coordinates: [CLLocationCoordinate2D] = []
+
+    
     // MARK: - Services
     private let locationManager: CLLocationManager
     
@@ -25,5 +29,9 @@ final class MapsScenePresenter {
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = viewDelegate as? CLLocationManagerDelegate
         locationManager.startUpdatingLocation()
+    }
+    
+    func addCoordinateToArray(_ coordinate: CLLocationCoordinate2D) {
+        coordinates.append(coordinate)
     }
 }
