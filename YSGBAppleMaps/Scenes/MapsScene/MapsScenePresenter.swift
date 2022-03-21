@@ -29,6 +29,9 @@ final class MapsScenePresenter {
     
     // MARK: - Public methods
     func configureLocationManager() {
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.startMonitoringSignificantLocationChanges()
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = viewDelegate as? CLLocationManagerDelegate
         locationManager.startUpdatingLocation()

@@ -389,6 +389,8 @@
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YSGBAppleMaps/Config/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дай чтобы в фоновом режиме того-этого! Пазязя!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай пожалуйста, очень надо!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -418,6 +420,8 @@
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YSGBAppleMaps/Config/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дай чтобы в фоновом режиме того-этого! Пазязя!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай пожалуйста, очень надо!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
