@@ -65,7 +65,7 @@ extension MapsSceneViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
         
-        polyLineRenderer.strokeColor = .tintColor
+        polyLineRenderer.strokeColor = isShowingPreviousRoute ? .systemRed : .tintColor
         polyLineRenderer.lineWidth = 10
         
         return polyLineRenderer
@@ -130,6 +130,7 @@ class MapsSceneViewController: UIViewController {
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
         isTracking.toggle()
         isShowingPreviousRoute = false
+        removeAllOverlays()
         
         if isTracking { presenter.startTracking() } else { presenter.stopTracking() }
     }
@@ -144,7 +145,7 @@ class MapsSceneViewController: UIViewController {
             isShowingPreviousRoute.toggle()
         }
         
-        if isShowingPreviousRoute { presenter.loadRoutes() }
+        if isShowingPreviousRoute { presenter.loadRoutes() } else { removeAllOverlays() }
     }
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {

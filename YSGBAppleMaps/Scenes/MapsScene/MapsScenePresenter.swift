@@ -43,7 +43,7 @@ final class MapsScenePresenter {
     }
     
     func addCoordinate(_ coordinate: CLLocationCoordinate2D) {
-        coordinates.insert(coordinate, at: coordinates.count)
+        coordinates.append(coordinate)
     }
     
     func loadRoutes() {
