@@ -33,6 +33,17 @@
                                     <action selector="zoomInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqu-dr-wZd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FD-qE-Gyw" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="242" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3FD-qE-Gyw" secondAttribute="height" multiplier="1:1" id="aTo-qS-O5s"/>
+                                    <constraint firstAttribute="height" constant="50" id="jNJ-Hh-X9C"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.right" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
                                 <rect key="frame" x="157" y="737" width="100" height="100"/>
                                 <constraints>
@@ -75,10 +86,22 @@
                                     <action selector="zoomOutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebD-Py-OaG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-Bk-afm" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="122" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7gQ-d8-zfz"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3FD-qE-Gyw" firstAttribute="leading" secondItem="r1u-vC-Cdw" secondAttribute="trailing" constant="10" id="2gD-td-hhb"/>
+                            <constraint firstItem="h02-Ml-s2P" firstAttribute="top" secondItem="5Ce-Bk-afm" secondAttribute="bottom" constant="50" id="3m5-aD-Wr5"/>
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="leading" secondItem="h02-Ml-s2P" secondAttribute="trailing" constant="25" id="5ZE-bK-f8W"/>
                             <constraint firstItem="Zu7-Pf-wfD" firstAttribute="width" secondItem="Zu7-Pf-wfD" secondAttribute="height" multiplier="1:1" id="5wF-ia-EIy"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6cJ-nE-G4c"/>
@@ -90,10 +113,13 @@
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UMi-SG-MaE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h02-Ml-s2P" secondAttribute="bottom" constant="50" id="USw-2i-qZr"/>
                             <constraint firstItem="r1u-vC-Cdw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cqn-Ur-ByY"/>
+                            <constraint firstItem="Zu7-Pf-wfD" firstAttribute="top" secondItem="3FD-qE-Gyw" secondAttribute="bottom" constant="50" id="fTX-TD-4up"/>
                             <constraint firstAttribute="bottom" secondItem="Kge-vI-XqW" secondAttribute="bottom" id="giR-Vt-jQ4"/>
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnn-YP-yql"/>
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
                             <constraint firstItem="Zu7-Pf-wfD" firstAttribute="leading" secondItem="nxg-Dj-aZC" secondAttribute="trailing" constant="25" id="iak-EV-L8J"/>
+                            <constraint firstItem="5Ce-Bk-afm" firstAttribute="width" secondItem="5Ce-Bk-afm" secondAttribute="height" multiplier="1:1" id="koY-uB-Kfs"/>
+                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="10" id="yv8-RB-D6E"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,6 +136,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="minus.magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
