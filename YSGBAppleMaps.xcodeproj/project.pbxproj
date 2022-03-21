@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */; };
+		CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AC25B27E8A64F008B9240 /* Generic.swift */; };
 		CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3927E57A9700694B83 /* AppDelegate.swift */; };
 		CA120E3C27E57A9700694B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3B27E57A9700694B83 /* SceneDelegate.swift */; };
 		CA120E4127E57A9700694B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E3F27E57A9700694B83 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistedRouteModel.swift; sourceTree = "<group>"; };
+		CA0AC25B27E8A64F008B9240 /* Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
 		CA120E3627E57A9700694B83 /* YSGBAppleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSGBAppleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA120E3927E57A9700694B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA120E3B27E57A9700694B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				CA120E5927E649DA00694B83 /* MapKitExtensions.swift */,
 				CA120E5C27E78E7E00694B83 /* Alerts.swift */,
+				CA0AC25B27E8A64F008B9240 /* Generic.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
+				CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
 				CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,

@@ -40,6 +40,9 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
             let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
             mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
             zoomValue = mapView.currentRadius()
+            if let middle = coordinatesArray.middle {
+                lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
+            }
         }
     }
     
