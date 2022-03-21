@@ -304,6 +304,7 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func deletePersistedRoutesButtonTapped(_ sender: Any) {
         self.yesNoAlert(title: "Удалить все маршруты?", message: "Вы действительно желаете удалить все сохраненные маршруты?") { _ in
+            self.isTracking = false
             self.isShowingPreviousRoute = false
             self.removeAllOverlays()
             self.presenter.deleteAllPersistedRoutes()
