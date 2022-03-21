@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Maps Scene View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapsSceneViewController" customModule="YSGBAppleMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kge-vI-XqW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h02-Ml-s2P" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="132" y="762" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5pp-OC-11J"/>
+                                    <constraint firstAttribute="width" secondItem="h02-Ml-s2P" secondAttribute="height" multiplier="1:1" id="rrS-aA-UWx"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus.magnifyingglass" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqu-dr-wZd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FD-qE-Gyw" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="242" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3FD-qE-Gyw" secondAttribute="height" multiplier="1:1" id="aTo-qS-O5s"/>
+                                    <constraint firstAttribute="height" constant="50" id="jNJ-Hh-X9C"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.right" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzP-cu-J8E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="157" y="737" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="AZW-EH-Wgq"/>
+                                    <constraint firstAttribute="width" secondItem="nxg-Dj-aZC" secondAttribute="height" multiplier="1:1" id="cbG-F9-Ssy"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" weight="light"/>
+                                </state>
+                                <connections>
+                                    <action selector="startStopTrackingButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pXu-1f-6PQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1u-vC-Cdw" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="182" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OHH-Tq-v38"/>
+                                    <constraint firstAttribute="width" secondItem="r1u-vC-Cdw" secondAttribute="height" multiplier="1:1" id="U8m-aG-OvG"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="point.topleft.down.curvedto.point.bottomright.up" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPreviousRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udt-ZS-zw6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zu7-Pf-wfD" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="232" y="762" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Te2-cX-gv0"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="minus.magnifyingglass" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomOutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebD-Py-OaG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-Bk-afm" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="122" y="662" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7gQ-d8-zfz"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAn-V6-1lP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-i9-RMx" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="182" y="69" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="l8b-i9-RMx" secondAttribute="height" multiplier="1:1" id="7BL-9g-Q71"/>
+                                    <constraint firstAttribute="height" constant="50" id="83B-XP-cOL"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="trash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePersistedRoutesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jni-Dg-37F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3FD-qE-Gyw" firstAttribute="leading" secondItem="r1u-vC-Cdw" secondAttribute="trailing" constant="10" id="2gD-td-hhb"/>
+                            <constraint firstItem="h02-Ml-s2P" firstAttribute="top" secondItem="5Ce-Bk-afm" secondAttribute="bottom" constant="50" id="3m5-aD-Wr5"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="leading" secondItem="h02-Ml-s2P" secondAttribute="trailing" constant="-25" id="5ZE-bK-f8W"/>
+                            <constraint firstItem="Zu7-Pf-wfD" firstAttribute="width" secondItem="Zu7-Pf-wfD" secondAttribute="height" multiplier="1:1" id="5wF-ia-EIy"/>
+                            <constraint firstItem="Kge-vI-XqW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6cJ-nE-G4c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zu7-Pf-wfD" secondAttribute="bottom" constant="50" id="Bjr-H1-sn3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nxg-Dj-aZC" secondAttribute="bottom" constant="25" id="CEp-Uw-Qd9"/>
+                            <constraint firstItem="l8b-i9-RMx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FqW-tQ-v7V"/>
+                            <constraint firstItem="Kge-vI-XqW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fw6-jg-dtU"/>
+                            <constraint firstItem="h02-Ml-s2P" firstAttribute="width" secondItem="h02-Ml-s2P" secondAttribute="height" multiplier="1:1" id="IiU-ZY-V8t"/>
+                            <constraint firstItem="Kge-vI-XqW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UMi-SG-MaE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h02-Ml-s2P" secondAttribute="bottom" constant="50" id="USw-2i-qZr"/>
+                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cqn-Ur-ByY"/>
+                            <constraint firstItem="Zu7-Pf-wfD" firstAttribute="top" secondItem="3FD-qE-Gyw" secondAttribute="bottom" constant="50" id="fTX-TD-4up"/>
+                            <constraint firstAttribute="bottom" secondItem="Kge-vI-XqW" secondAttribute="bottom" id="giR-Vt-jQ4"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnn-YP-yql"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
+                            <constraint firstItem="Zu7-Pf-wfD" firstAttribute="leading" secondItem="nxg-Dj-aZC" secondAttribute="trailing" constant="-25" id="iak-EV-L8J"/>
+                            <constraint firstItem="l8b-i9-RMx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="jm5-bG-CJK"/>
+                            <constraint firstItem="5Ce-Bk-afm" firstAttribute="width" secondItem="5Ce-Bk-afm" secondAttribute="height" multiplier="1:1" id="koY-uB-Kfs"/>
+                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="10" id="yv8-RB-D6E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButtonConstraint" destination="jm5-bG-CJK" id="CYQ-fn-6yR"/>
+                        <outlet property="deletePersistedRoutesButton" destination="l8b-i9-RMx" id="SFc-CN-zdV"/>
+                        <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
+                        <outlet property="nextButtonConstraint" destination="2gD-td-hhb" id="6Hg-1Y-cUG"/>
+                        <outlet property="nextRouteButton" destination="3FD-qE-Gyw" id="7oa-YA-7Nm"/>
+                        <outlet property="previousButtonConstraint" destination="yv8-RB-D6E" id="627-rp-o4R"/>
+                        <outlet property="previousRouteButton" destination="5Ce-Bk-afm" id="Iv0-BR-Iu4"/>
+                        <outlet property="showPreviousRouteButton" destination="r1u-vC-Cdw" id="ZJx-9k-wGq"/>
+                        <outlet property="showRouteButtonConstraint" destination="hh2-vc-lga" id="JbD-dK-QI8"/>
+                        <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>
+                        <outlet property="zoomInButton" destination="h02-Ml-s2P" id="JLD-pP-gdN"/>
+                        <outlet property="zoomInButtonConstraint" destination="5ZE-bK-f8W" id="9mA-11-tIs"/>
+                        <outlet property="zoomOutButton" destination="Zu7-Pf-wfD" id="TsN-WB-mKP"/>
+                        <outlet property="zoomOutButtonConstraint" destination="iak-EV-L8J" id="RDR-Yl-NGu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="minus.magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="point.topleft.down.curvedto.point.bottomright.up" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

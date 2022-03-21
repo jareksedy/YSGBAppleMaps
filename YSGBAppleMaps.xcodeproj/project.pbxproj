@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */; };
+		CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AC25B27E8A64F008B9240 /* Generic.swift */; };
 		CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3927E57A9700694B83 /* AppDelegate.swift */; };
 		CA120E3C27E57A9700694B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3B27E57A9700694B83 /* SceneDelegate.swift */; };
-		CA120E3E27E57A9700694B83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3D27E57A9700694B83 /* ViewController.swift */; };
 		CA120E4127E57A9700694B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E3F27E57A9700694B83 /* Main.storyboard */; };
 		CA120E4327E57A9800694B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA120E4227E57A9800694B83 /* Assets.xcassets */; };
 		CA120E4627E57A9800694B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E4427E57A9800694B83 /* LaunchScreen.storyboard */; };
+		CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5227E5814700694B83 /* MapsSceneViewController.swift */; };
+		CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */; };
+		CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* CircularButton.swift */; };
+		CA120E5A27E649DA00694B83 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5927E649DA00694B83 /* MapKitExtensions.swift */; };
+		CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5C27E78E7E00694B83 /* Alerts.swift */; };
+		CAE2422A27E7A0A200D01823 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAE2422927E7A0A200D01823 /* Realm */; };
+		CAE2422C27E7A0A200D01823 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAE2422B27E7A0A200D01823 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistedRouteModel.swift; sourceTree = "<group>"; };
+		CA0AC25B27E8A64F008B9240 /* Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
 		CA120E3627E57A9700694B83 /* YSGBAppleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSGBAppleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA120E3927E57A9700694B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA120E3B27E57A9700694B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA120E3D27E57A9700694B83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA120E4027E57A9700694B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA120E4227E57A9800694B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA120E4527E57A9800694B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA120E4727E57A9800694B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA120E5227E5814700694B83 /* MapsSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSceneViewController.swift; sourceTree = "<group>"; };
+		CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsScenePresenter.swift; sourceTree = "<group>"; };
+		CA120E5627E59DD200694B83 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		CA120E5927E649DA00694B83 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
+		CA120E5C27E78E7E00694B83 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +45,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE2422C27E7A0A200D01823 /* RealmSwift in Frameworks */,
+				CAE2422A27E7A0A200D01823 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0AC25A27E81DBE008B9240 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CA120E2D27E57A9600694B83 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +82,75 @@
 			children = (
 				CA120E3927E57A9700694B83 /* AppDelegate.swift */,
 				CA120E3B27E57A9700694B83 /* SceneDelegate.swift */,
-				CA120E3D27E57A9700694B83 /* ViewController.swift */,
-				CA120E3F27E57A9700694B83 /* Main.storyboard */,
-				CA120E4227E57A9800694B83 /* Assets.xcassets */,
-				CA120E4427E57A9800694B83 /* LaunchScreen.storyboard */,
-				CA120E4727E57A9800694B83 /* Info.plist */,
+				CA0AC25A27E81DBE008B9240 /* Models */,
+				CA120E5B27E649FC00694B83 /* Extensions */,
+				CA120E5827E5F81100694B83 /* UIComponents */,
+				CA120E5027E5812100694B83 /* Scenes */,
+				CA120E4D27E57FC700694B83 /* Storyboards */,
+				CA120E4E27E57FD300694B83 /* Resources */,
+				CA120E4F27E57FDC00694B83 /* Config */,
 			);
 			path = YSGBAppleMaps;
+			sourceTree = "<group>";
+		};
+		CA120E4D27E57FC700694B83 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E3F27E57A9700694B83 /* Main.storyboard */,
+				CA120E4427E57A9800694B83 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CA120E4E27E57FD300694B83 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E4227E57A9800694B83 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA120E4F27E57FDC00694B83 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E4727E57A9800694B83 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		CA120E5027E5812100694B83 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E5127E5812A00694B83 /* MapsScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CA120E5127E5812A00694B83 /* MapsScene */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E5227E5814700694B83 /* MapsSceneViewController.swift */,
+				CA120E5427E5817D00694B83 /* MapsScenePresenter.swift */,
+			);
+			path = MapsScene;
+			sourceTree = "<group>";
+		};
+		CA120E5827E5F81100694B83 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E5627E59DD200694B83 /* CircularButton.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		CA120E5B27E649FC00694B83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA120E5927E649DA00694B83 /* MapKitExtensions.swift */,
+				CA120E5C27E78E7E00694B83 /* Alerts.swift */,
+				CA0AC25B27E8A64F008B9240 /* Generic.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +169,10 @@
 			dependencies = (
 			);
 			name = YSGBAppleMaps;
+			packageProductDependencies = (
+				CAE2422927E7A0A200D01823 /* Realm */,
+				CAE2422B27E7A0A200D01823 /* RealmSwift */,
+			);
 			productName = YSGBAppleMaps;
 			productReference = CA120E3627E57A9700694B83 /* YSGBAppleMaps.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +201,9 @@
 				Base,
 			);
 			mainGroup = CA120E2D27E57A9600694B83;
+			packageReferences = (
+				CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = CA120E3727E57A9700694B83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +231,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA120E3E27E57A9700694B83 /* ViewController.swift in Sources */,
+				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
+				CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */,
+				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
+				CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */,
+				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,
 				CA120E3C27E57A9700694B83 /* SceneDelegate.swift in Sources */,
+				CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */,
+				CA120E5A27E649DA00694B83 /* MapKitExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,10 +388,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YSGBAppleMaps/Info.plist;
+				INFOPLIST_FILE = YSGBAppleMaps/Config/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дай чтобы в фоновом режиме того-этого! Пазязя!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай пожалуйста, очень надо!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,10 +419,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YSGBAppleMaps/Info.plist;
+				INFOPLIST_FILE = YSGBAppleMaps/Config/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Дай чтобы в фоновом режиме того-этого! Пазязя!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай пожалуйста, очень надо!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +463,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CAE2422927E7A0A200D01823 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		CAE2422B27E7A0A200D01823 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA120E2E27E57A9600694B83 /* Project object */;
 }
