@@ -31,15 +31,15 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
             coordinatesArray.append(coordinate.coordinate)
         }
         
-        guard let lastCoordinate = coordinatesArray.last else { return }
-        
         isTracking = false
         
         let myRoutePolyLine = MKPolyline(coordinates: coordinatesArray, count: coordinatesArray.count)
-        let lastLocation = CLLocation(latitude: lastCoordinate.latitude, longitude: lastCoordinate.longitude)
-        
         mapView.addOverlay(myRoutePolyLine)
-        mapView.zoomToLocation(lastLocation, regionRadius: 1000)
+        
+        if let firstOverlay = mapView.overlays.first {
+            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
+            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
+        }
     }
     
     func showNoPersistedRoutesMessage() {

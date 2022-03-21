@@ -119,7 +119,7 @@
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
                             <constraint firstItem="Zu7-Pf-wfD" firstAttribute="leading" secondItem="nxg-Dj-aZC" secondAttribute="trailing" constant="25" id="iak-EV-L8J"/>
                             <constraint firstItem="5Ce-Bk-afm" firstAttribute="width" secondItem="5Ce-Bk-afm" secondAttribute="height" multiplier="1:1" id="koY-uB-Kfs"/>
-                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="10" id="yv8-RB-D6E"/>
+                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="-15" id="yv8-RB-D6E"/>
                         </constraints>
                     </view>
                     <connections>
