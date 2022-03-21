@@ -189,7 +189,7 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupScene() {
-        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         presenter.configureLocationManager()
         mapView.delegate = self
         
