@@ -38,7 +38,7 @@ final class MapsScenePresenter {
     
     func stopTracking() {
         saveRouteToRealm(coordinates)
-        coordinates = []
+        coordinates.removeAll()
         viewDelegate?.removeAllOverlays()
     }
     
