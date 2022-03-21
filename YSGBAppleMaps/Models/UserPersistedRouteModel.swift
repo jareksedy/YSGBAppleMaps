@@ -15,7 +15,7 @@ class UserPersistedRoute: Object {
 class Location: Object {
     @objc dynamic var latitude = 0.0
     @objc dynamic var longitude = 0.0
-
+    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }

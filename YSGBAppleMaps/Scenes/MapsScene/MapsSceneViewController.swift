@@ -13,7 +13,7 @@ import RealmSwift
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
     func removeAllOverlays()
-    func showRoutes(routesArray: [[CLLocationCoordinate2D]])
+    func showRoutes(_ routesArray: [UserPersistedRoute])
     func showNoPersistedRoutesMessage()
 }
 
@@ -23,11 +23,19 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
         mapView.removeOverlays(mapView.overlays)
     }
     
-    func showRoutes(routesArray: [[CLLocationCoordinate2D]]) {
-        guard let lastRoute = routesArray.last, let lastCoordinate = lastRoute.last else { return }
+    func showRoutes(_ routesArray: [UserPersistedRoute]) {
+        guard let lastRoute = routesArray.last else { return }
+        
+        var coordinatesArray: [CLLocationCoordinate2D] = []
+        lastRoute.coordinates.forEach { coordinate in
+            coordinatesArray.append(coordinate.coordinate)
+        }
+        
+        guard let lastCoordinate = coordinatesArray.last else { return }
         
         isTracking = false
-        let myRoutePolyLine = MKPolyline(coordinates: lastRoute, count: lastRoute.count)
+        
+        let myRoutePolyLine = MKPolyline(coordinates: coordinatesArray, count: coordinatesArray.count)
         let lastLocation = CLLocation(latitude: lastCoordinate.latitude, longitude: lastCoordinate.longitude)
         
         mapView.addOverlay(myRoutePolyLine)
@@ -42,7 +50,7 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 // MARK: - Additional extensions
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
+        if let location = locations.first {
             if isShowingPreviousRoute == false {
             mapView.zoomToLocation(location, regionRadius: zoomValue)
             lastLocation = location
@@ -114,7 +122,7 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupScene() {
-        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         presenter.configureLocationManager()
         mapView.delegate = self
     }

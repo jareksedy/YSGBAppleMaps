@@ -34,6 +34,8 @@ final class MapsScenePresenter {
     }
     
     func startTracking() {
+        coordinates.removeAll()
+        viewDelegate?.removeAllOverlays()
     }
     
     func stopTracking() {
@@ -49,15 +51,11 @@ final class MapsScenePresenter {
     func loadRoutes() {
         let routesArray = getPersistedRoutes()
         if routesArray.count > 0 {
-            viewDelegate?.showRoutes(routesArray: routesArray)
+            viewDelegate?.showRoutes(routesArray)
         } else {
             viewDelegate?.showNoPersistedRoutesMessage()
         }
     }
-    
-//    func getPersistedRoutesCount() -> Int {
-//        return realm.objects(UserPersistedRoute.self).count
-//    }
     
     // MARK: - Privte methods
     private func saveRouteToRealm(_ coordinates: [CLLocationCoordinate2D]) {
@@ -75,21 +73,7 @@ final class MapsScenePresenter {
         }
     }
     
-    private func getPersistedRoutes() -> [[CLLocationCoordinate2D]] {
-        var routesArray: [[CLLocationCoordinate2D]] = []
-        var routesSubArray: [CLLocationCoordinate2D] = []
-        
-        let routes = Array(realm.objects(UserPersistedRoute.self)) // [UserPersistedRoute]
-        
-        routes.forEach { route in
-            let coordinatesArray = Array(route.coordinates)
-            
-            coordinatesArray.forEach { coordinate in
-                routesSubArray.append(coordinate.coordinate)
-            }
-            routesArray.append(routesSubArray)
-        }
-        
-        return routesArray
+    private func getPersistedRoutes() -> [UserPersistedRoute] {
+        return Array(realm.objects(UserPersistedRoute.self))
     }
 }
