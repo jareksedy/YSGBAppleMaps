@@ -39,6 +39,7 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
         if let firstOverlay = mapView.overlays.first {
             let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
             mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
+            zoomValue = mapView.currentRadius()
         }
     }
     
@@ -108,6 +109,10 @@ class MapsSceneViewController: UIViewController {
     
     var isShowingPreviousRoute: Bool = false {
         didSet {
+            mapView.isScrollEnabled = isShowingPreviousRoute
+            mapView.isZoomEnabled = isShowingPreviousRoute
+            mapView.showsUserLocation = !isShowingPreviousRoute
+            
             UIView.animate(withDuration: 0.25) {
                 if self.isShowingPreviousRoute {
                     self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: .pi / 4 * 3)
