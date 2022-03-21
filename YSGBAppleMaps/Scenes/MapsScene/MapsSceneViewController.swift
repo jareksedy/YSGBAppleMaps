@@ -112,6 +112,17 @@ class MapsSceneViewController: UIViewController {
     var lastLocation: CLLocation?
     var currentRouteIndex: Int = 0 {
         didSet {
+            if currentRouteIndex == 0 && presenter.persistedRoutesCount == 2 {
+                previousRouteButton.isEnabled = false
+                nextRouteButton.isEnabled = true
+                return
+            }
+            
+            if currentRouteIndex == presenter.persistedRoutesCount - 1 && presenter.persistedRoutesCount == 2 {
+                previousRouteButton.isEnabled = true
+                nextRouteButton.isEnabled = false
+            }
+            
             if currentRouteIndex == 0 {
                 previousRouteButton.isEnabled = false
                 return
