@@ -146,8 +146,6 @@ class MapsSceneViewController: UIViewController {
         }
     }
     
-    // MARK: - Selectors
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
