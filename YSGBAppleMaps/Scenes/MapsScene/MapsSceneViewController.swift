@@ -100,7 +100,22 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Properties
     var zoomValue: Double = 300
     var lastLocation: CLLocation?
-    var currentRouteIndex: Int = 0
+    var currentRouteIndex: Int = 0 {
+        didSet {
+            if currentRouteIndex == 0 {
+                previousRouteButton.isEnabled = false
+                return
+            }
+            
+            if currentRouteIndex == presenter.persistedRoutesCount - 1 {
+                nextRouteButton.isEnabled = false
+                return
+            }
+            
+            previousRouteButton.isEnabled = true
+            nextRouteButton.isEnabled = true
+        }
+    }
     
     var isTracking: Bool = false {
         didSet {
