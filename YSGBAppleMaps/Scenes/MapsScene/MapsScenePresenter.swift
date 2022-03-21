@@ -35,10 +35,12 @@ final class MapsScenePresenter {
     }
     
     func startTracking() {
+        viewDelegate?.showStartTrackingMessage()
         coordinates.removeAll()
     }
     
     func stopTracking() {
+        viewDelegate?.showStopTrackingMessage()
         saveRouteToRealm(coordinates)
         viewDelegate?.removeAllOverlays()
     }
@@ -58,6 +60,12 @@ final class MapsScenePresenter {
     
     func getPersistedRoutes() -> [UserPersistedRoute] {
         return Array(realm.objects(UserPersistedRoute.self))
+    }
+    
+    func deleteAllPersistedRoutes() {
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
     
     // MARK: - Privte methods

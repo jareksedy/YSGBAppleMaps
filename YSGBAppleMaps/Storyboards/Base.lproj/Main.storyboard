@@ -101,6 +101,20 @@
                                     <action selector="previousRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAn-V6-1lP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-i9-RMx" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
+                                <rect key="frame" x="182" y="69" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="l8b-i9-RMx" secondAttribute="height" multiplier="1:1" id="7BL-9g-Q71"/>
+                                    <constraint firstAttribute="height" constant="50" id="83B-XP-cOL"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="trash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePersistedRoutesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jni-Dg-37F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,6 +126,7 @@
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6cJ-nE-G4c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zu7-Pf-wfD" secondAttribute="bottom" constant="50" id="Bjr-H1-sn3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nxg-Dj-aZC" secondAttribute="bottom" constant="25" id="CEp-Uw-Qd9"/>
+                            <constraint firstItem="l8b-i9-RMx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FqW-tQ-v7V"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fw6-jg-dtU"/>
                             <constraint firstItem="h02-Ml-s2P" firstAttribute="width" secondItem="h02-Ml-s2P" secondAttribute="height" multiplier="1:1" id="IiU-ZY-V8t"/>
                             <constraint firstItem="Kge-vI-XqW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UMi-SG-MaE"/>
@@ -122,11 +137,13 @@
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gnn-YP-yql"/>
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
                             <constraint firstItem="Zu7-Pf-wfD" firstAttribute="leading" secondItem="nxg-Dj-aZC" secondAttribute="trailing" constant="-25" id="iak-EV-L8J"/>
+                            <constraint firstItem="l8b-i9-RMx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="jm5-bG-CJK"/>
                             <constraint firstItem="5Ce-Bk-afm" firstAttribute="width" secondItem="5Ce-Bk-afm" secondAttribute="height" multiplier="1:1" id="koY-uB-Kfs"/>
                             <constraint firstItem="r1u-vC-Cdw" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="10" id="yv8-RB-D6E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deletePersistedRoutesButton" destination="l8b-i9-RMx" id="SFc-CN-zdV"/>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
                         <outlet property="nextButtonConstraint" destination="2gD-td-hhb" id="6Hg-1Y-cUG"/>
                         <outlet property="nextRouteButton" destination="3FD-qE-Gyw" id="7oa-YA-7Nm"/>
@@ -152,6 +169,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="point.topleft.down.curvedto.point.bottomright.up" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

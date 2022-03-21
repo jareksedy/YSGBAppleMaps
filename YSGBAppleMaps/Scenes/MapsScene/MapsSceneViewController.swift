@@ -15,6 +15,8 @@ protocol MapsSceneViewDelegate: NSObjectProtocol {
     func removeAllOverlays()
     func showRoute(_ routesArray: [UserPersistedRoute], index: Int)
     func showNoPersistedRoutesMessage()
+    func showStartTrackingMessage()
+    func showStopTrackingMessage()
 }
 
 // MARK: - Implementation
@@ -53,6 +55,14 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
     
     func showNoPersistedRoutesMessage() {
         quickAlert(message: "Нет сохраненных маршрутов.") { self.isShowingPreviousRoute = false }
+    }
+    
+    func showStartTrackingMessage() {
+        quickAlert(message: "Началась запись маршрута.")
+    }
+    
+    func showStopTrackingMessage() {
+        quickAlert(message: "Запись маршрута остановлена.")
     }
 }
 
@@ -148,8 +158,12 @@ class MapsSceneViewController: UIViewController {
                 if self.isShowingPreviousRoute {
                     self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: .pi / 4 * 3)
                     self.showPreviousRouteButton.tintColor = UIColor.systemRed
-                    self.nextRouteButton.alpha = 1
-                    self.previousRouteButton.alpha = 1
+                    
+                    if self.presenter.persistedRoutesCount > 1 {
+                        self.nextRouteButton.alpha = 1
+                        self.previousRouteButton.alpha = 1
+                    }
+                    
                     self.view.layoutIfNeeded()
                 } else {
                     self.showPreviousRouteButton.transform = .identity
@@ -191,6 +205,8 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var zoomOutButton: CircularButton!
     @IBOutlet weak var previousRouteButton: CircularButton!
     @IBOutlet weak var nextRouteButton: CircularButton!
+    @IBOutlet weak var deletePersistedRoutesButton: CircularButton!
+    
     
     // MARK: - Constraint outlets
     @IBOutlet weak var previousButtonConstraint: NSLayoutConstraint!
@@ -212,7 +228,7 @@ class MapsSceneViewController: UIViewController {
         previousRouteButton.isEnabled = true
         
         if isTracking {
-            self.yesNoAlert(title: "Прервать слежение?", message: "Для отображения сохраненных маршрутов необходимо прервать текущее слежение.") { _ in
+            self.yesNoAlert(title: "Прервать слежение?", message: "Для отображения сохраненных маршрутов необходимо прервать запись текущего маршрута.") { _ in
                 self.isTracking = false
                 self.isShowingPreviousRoute.toggle()
             }
@@ -253,6 +269,11 @@ class MapsSceneViewController: UIViewController {
         showRoute(presenter.getPersistedRoutes(), index: currentRouteIndex)
     }
     
+    @IBAction func deletePersistedRoutesButtonTapped(_ sender: Any) {
+        self.yesNoAlert(title: "Удалить все маршруты?", message: "Вы действительно желаете удалить все сохраненные маршруты?") { _ in
+            self.presenter.deleteAllPersistedRoutes()
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
