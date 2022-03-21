@@ -142,9 +142,13 @@ class MapsSceneViewController: UIViewController {
                 if self.isShowingPreviousRoute {
                     self.showPreviousRouteButton.transform = CGAffineTransform(rotationAngle: .pi / 4 * 3)
                     self.showPreviousRouteButton.tintColor = UIColor.systemRed
+                    self.nextRouteButton.alpha = 1
+                    self.previousRouteButton.alpha = 1
                 } else {
                     self.showPreviousRouteButton.transform = .identity
                     self.showPreviousRouteButton.tintColor = UIColor.tintColor
+                    self.nextRouteButton.alpha = 0
+                    self.previousRouteButton.alpha = 0
                 }
             }
         }
@@ -152,9 +156,12 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupScene() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
         presenter.configureLocationManager()
         mapView.delegate = self
+        
+        previousRouteButton.alpha = 0
+        nextRouteButton.alpha = 0
     }
     
     // MARK: - Outlets
