@@ -114,8 +114,7 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
         if isTracking {
-            self.yesNoAlert(title: "Прервать отслеживание?",
-                            message: "Для отображения маршрута необходимо прервать отслеживание.") { _ in
+            self.yesNoAlert(title: "Прервать слежение?", message: "Для отображения сохраненных маршрутов необходимо прервать текущее слежение.") { _ in
                 self.isTracking = false
                 self.isShowingPreviousRoute.toggle()
             }
