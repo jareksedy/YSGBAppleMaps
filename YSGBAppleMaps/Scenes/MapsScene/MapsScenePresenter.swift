@@ -15,6 +15,7 @@ final class MapsScenePresenter {
     
     // MARK: - Public properties
     var coordinates: [CLLocationCoordinate2D] = []
+    var persistedRoutesCount: Int { realm.objects(UserPersistedRoute.self).count }
     
     // MARK: - Services
     private let locationManager: CLLocationManager
@@ -49,10 +50,14 @@ final class MapsScenePresenter {
     func loadRoutes() {
         let routesArray = getPersistedRoutes()
         if routesArray.count > 0 {
-            viewDelegate?.showRoutes(routesArray)
+            viewDelegate?.showRoute(routesArray, index: persistedRoutesCount - 1)
         } else {
             viewDelegate?.showNoPersistedRoutesMessage()
         }
+    }
+    
+    func getPersistedRoutes() -> [UserPersistedRoute] {
+        return Array(realm.objects(UserPersistedRoute.self))
     }
     
     // MARK: - Privte methods
@@ -69,9 +74,5 @@ final class MapsScenePresenter {
         try! realm.write {
             realm.add(userPersistedRoute)
         }
-    }
-    
-    private func getPersistedRoutes() -> [UserPersistedRoute] {
-        return Array(realm.objects(UserPersistedRoute.self))
     }
 }

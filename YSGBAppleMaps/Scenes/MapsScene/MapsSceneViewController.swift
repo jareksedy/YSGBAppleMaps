@@ -13,7 +13,7 @@ import RealmSwift
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
     func removeAllOverlays()
-    func showRoutes(_ routesArray: [UserPersistedRoute])
+    func showRoute(_ routesArray: [UserPersistedRoute], index: Int)
     func showNoPersistedRoutesMessage()
 }
 
@@ -23,11 +23,14 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
         mapView.removeOverlays(mapView.overlays)
     }
     
-    func showRoutes(_ routesArray: [UserPersistedRoute]) {
-        guard let lastRoute = routesArray.last else { return }
+    func showRoute(_ routesArray: [UserPersistedRoute], index: Int = 0) {
+        guard index < presenter.persistedRoutesCount else { return }
+        let currentRoute = routesArray[index]
+        
+        removeAllOverlays()
         
         var coordinatesArray: [CLLocationCoordinate2D] = []
-        lastRoute.coordinates.forEach { coordinate in
+        currentRoute.coordinates.forEach { coordinate in
             coordinatesArray.append(coordinate.coordinate)
         }
         
@@ -97,6 +100,7 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Properties
     var zoomValue: Double = 300
     var lastLocation: CLLocation?
+    var currentRouteIndex: Int = 0
     
     var isTracking: Bool = false {
         didSet {
@@ -116,6 +120,8 @@ class MapsSceneViewController: UIViewController {
         didSet {
             mapView.isScrollEnabled = isShowingPreviousRoute
             mapView.showsUserLocation = !isShowingPreviousRoute
+            
+            currentRouteIndex = presenter.persistedRoutesCount - 1
             
             UIView.animate(withDuration: 0.25) {
                 if self.isShowingPreviousRoute {
@@ -142,6 +148,8 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var showPreviousRouteButton: CircularButton!
     @IBOutlet weak var zoomInButton: CircularButton!
     @IBOutlet weak var zoomOutButton: CircularButton!
+    @IBOutlet weak var previousRouteButton: CircularButton!
+    @IBOutlet weak var nextRouteButton: CircularButton!
     
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
@@ -167,7 +175,6 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {
         guard zoomValue > 200 else { return }
-        
         zoomValue -= 200
         
         if let lastLocation = lastLocation {
@@ -177,7 +184,6 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func zoomOutButtonTapped(_ sender: Any) {
         guard zoomValue < 100_000 else { return }
-        
         zoomValue += 300
         
         if let lastLocation = lastLocation {
@@ -185,9 +191,23 @@ class MapsSceneViewController: UIViewController {
         }
     }
     
+    @IBAction func previousRouteButtonTapped(_ sender: Any) {
+        guard currentRouteIndex > 0, isShowingPreviousRoute else { return }
+        currentRouteIndex -= 1
+        showRoute(presenter.getPersistedRoutes(), index: currentRouteIndex)
+    }
+    
+    @IBAction func nextRouteButtonTapped(_ sender: Any) {
+        guard currentRouteIndex < presenter.persistedRoutesCount - 1, isShowingPreviousRoute else { return }
+        currentRouteIndex += 1
+        showRoute(presenter.getPersistedRoutes(), index: currentRouteIndex)
+    }
+    
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         presenter.viewDelegate = self
         setupScene()
     }

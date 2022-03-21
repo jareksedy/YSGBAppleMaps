@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -43,6 +43,9 @@
                                 <state key="normal" image="arrow.right" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzP-cu-J8E"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxg-Dj-aZC" customClass="CircularButton" customModule="YSGBAppleMaps" customModuleProvider="target">
                                 <rect key="frame" x="157" y="737" width="100" height="100"/>
@@ -95,6 +98,9 @@
                                 <state key="normal" image="arrow.left" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" weight="regular"/>
                                 </state>
+                                <connections>
+                                    <action selector="previousRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAn-V6-1lP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -124,6 +130,8 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
+                        <outlet property="nextRouteButton" destination="3FD-qE-Gyw" id="7oa-YA-7Nm"/>
+                        <outlet property="previousRouteButton" destination="5Ce-Bk-afm" id="Iv0-BR-Iu4"/>
                         <outlet property="showPreviousRouteButton" destination="r1u-vC-Cdw" id="ZJx-9k-wGq"/>
                         <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>
                         <outlet property="zoomInButton" destination="h02-Ml-s2P" id="JLD-pP-gdN"/>
