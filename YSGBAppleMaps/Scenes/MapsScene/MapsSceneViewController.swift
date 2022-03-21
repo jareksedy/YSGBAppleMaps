@@ -43,7 +43,7 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
             lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
             mapView.zoomToLocation(lastLocation!, regionRadius: zoomValue)
         }
-        
+// --- точное позиционирование в границах polyline с отступами ---
 //        if let firstOverlay = mapView.overlays.first {
 //            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
 //            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
@@ -170,6 +170,17 @@ class MapsSceneViewController: UIViewController {
         
         previousRouteButton.alpha = 0
         nextRouteButton.alpha = 0
+        zoomInButton.alpha = 0
+        zoomOutButton.alpha = 0
+        
+        zoomInButtonConstraint.constant = 25
+        zoomOutButtonConstraint.constant = 25
+        
+        UIView.animate(withDuration: 0.25) {
+            self.zoomInButton.alpha = 1
+            self.zoomOutButton.alpha = 1
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Outlets
@@ -184,6 +195,8 @@ class MapsSceneViewController: UIViewController {
     // MARK: - Constraint outlets
     @IBOutlet weak var previousButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var zoomInButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var zoomOutButtonConstraint: NSLayoutConstraint!
     
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
