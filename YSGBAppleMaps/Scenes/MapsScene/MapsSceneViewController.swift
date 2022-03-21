@@ -36,14 +36,16 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
         let myRoutePolyLine = MKPolyline(coordinates: coordinatesArray, count: coordinatesArray.count)
         mapView.addOverlay(myRoutePolyLine)
         
-        if let firstOverlay = mapView.overlays.first {
-            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
-            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
-            zoomValue = mapView.currentRadius()
-            if let middle = coordinatesArray.middle {
-                lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
-            }
+        if let middle = coordinatesArray.middle {
+            lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
+            mapView.zoomToLocation(lastLocation!, regionRadius: zoomValue)
         }
+        
+//        if let firstOverlay = mapView.overlays.first {
+//            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
+//            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
+//            zoomValue = mapView.currentRadius()
+//        }
     }
     
     func showNoPersistedRoutesMessage() {
@@ -113,7 +115,6 @@ class MapsSceneViewController: UIViewController {
     var isShowingPreviousRoute: Bool = false {
         didSet {
             mapView.isScrollEnabled = isShowingPreviousRoute
-            mapView.isZoomEnabled = isShowingPreviousRoute
             mapView.showsUserLocation = !isShowingPreviousRoute
             
             UIView.animate(withDuration: 0.25) {
