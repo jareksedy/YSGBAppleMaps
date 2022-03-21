@@ -259,9 +259,11 @@ class MapsSceneViewController: UIViewController {
         previousRouteButton.isEnabled = true
         
         if isTracking {
-            self.yesNoAlert(title: "Прервать слежение?", message: "Для отображения сохраненных маршрутов необходимо прервать запись текущего маршрута.") { _ in
+            self.yesNoAlert(title: "Прервать запись?", message: "Для отображения сохраненных маршрутов необходимо прервать запись текущего маршрута.") { _ in
+                self.removeAllOverlays()
                 self.isTracking = false
-                self.isShowingPreviousRoute.toggle()
+                self.isShowingPreviousRoute = true
+                self.showRoute(self.presenter.getPersistedRoutes(), index: self.currentRouteIndex)
             }
         } else {
             isShowingPreviousRoute.toggle()
