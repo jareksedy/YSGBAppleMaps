@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import RealmSwift
 
 // MARK: - Presenter
 final class MapsScenePresenter {
@@ -17,10 +18,12 @@ final class MapsScenePresenter {
     
     // MARK: - Services
     private let locationManager: CLLocationManager
+    private let realm: Realm
     
     // MARK: - Initializers
-    init(locationManager: CLLocationManager) {
+    init(locationManager: CLLocationManager, realm: Realm) {
         self.locationManager = locationManager
+        self.realm = realm
     }
     
     // MARK: - Public methods
@@ -34,11 +37,28 @@ final class MapsScenePresenter {
     }
     
     func stopTracking() {
+        saveRouteToRealm(coordinates)
         coordinates = []
         viewDelegate?.removeAllOverlays()
     }
     
     func addCoordinate(_ coordinate: CLLocationCoordinate2D) {
         coordinates.insert(coordinate, at: coordinates.count)
+    }
+    
+    // MARK: - Privte methods
+    private func saveRouteToRealm(_ coordinates: [CLLocationCoordinate2D]) {
+        let userPersistedRoute = UserPersistedRoute()
+        
+        coordinates.forEach { coordinate in
+            let location = Location()
+            location.latitude = coordinate.latitude
+            location.longitude = coordinate.longitude
+            userPersistedRoute.coordinates.append(location)
+        }
+        
+        try! realm.write {
+            realm.add(userPersistedRoute)
+        }
     }
 }

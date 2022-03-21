@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */; };
 		CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3927E57A9700694B83 /* AppDelegate.swift */; };
 		CA120E3C27E57A9700694B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E3B27E57A9700694B83 /* SceneDelegate.swift */; };
 		CA120E4127E57A9700694B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA120E3F27E57A9700694B83 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistedRouteModel.swift; sourceTree = "<group>"; };
 		CA120E3627E57A9700694B83 /* YSGBAppleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSGBAppleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA120E3927E57A9700694B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA120E3B27E57A9700694B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0AC25A27E81DBE008B9240 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA0AC25827E81DBA008B9240 /* UserPersistedRouteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CA120E2D27E57A9600694B83 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 			children = (
 				CA120E3927E57A9700694B83 /* AppDelegate.swift */,
 				CA120E3B27E57A9700694B83 /* SceneDelegate.swift */,
+				CA0AC25A27E81DBE008B9240 /* Models */,
 				CA120E5B27E649FC00694B83 /* Extensions */,
 				CA120E5827E5F81100694B83 /* UIComponents */,
 				CA120E5027E5812100694B83 /* Scenes */,
@@ -220,6 +231,7 @@
 				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
+				CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,
 				CA120E3C27E57A9700694B83 /* SceneDelegate.swift in Sources */,
 				CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */,

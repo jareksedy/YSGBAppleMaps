@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RealmSwift
 
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
@@ -54,10 +55,11 @@ extension MapsSceneViewController: MKMapViewDelegate {
 
 // MARK: - View controller
 class MapsSceneViewController: UIViewController {
-    lazy var presenter = MapsScenePresenter(locationManager: locationManager)
+    lazy var presenter = MapsScenePresenter(locationManager: locationManager, realm: realm)
     
     // MARK: - Services
     let locationManager = CLLocationManager()
+    let realm = try! Realm()
     
     // MARK: - Properties
     var zoomValue: Double = 300
@@ -93,6 +95,7 @@ class MapsSceneViewController: UIViewController {
     
     // MARK: - Methods
     private func setupScene() {
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
         presenter.configureLocationManager()
         mapView.delegate = self
     }
