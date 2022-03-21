@@ -46,6 +46,10 @@ final class MapsScenePresenter {
         coordinates.insert(coordinate, at: coordinates.count)
     }
     
+    func getPersistedRoutesCount() -> Int {
+        return realm.objects(UserPersistedRoute.self).count
+    }
+    
     // MARK: - Privte methods
     private func saveRouteToRealm(_ coordinates: [CLLocationCoordinate2D]) {
         let userPersistedRoute = UserPersistedRoute()
