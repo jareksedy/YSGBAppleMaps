@@ -125,12 +125,14 @@
                             <constraint firstItem="nxg-Dj-aZC" firstAttribute="top" secondItem="r1u-vC-Cdw" secondAttribute="bottom" constant="25" id="hh2-vc-lga"/>
                             <constraint firstItem="Zu7-Pf-wfD" firstAttribute="leading" secondItem="nxg-Dj-aZC" secondAttribute="trailing" constant="25" id="iak-EV-L8J"/>
                             <constraint firstItem="5Ce-Bk-afm" firstAttribute="width" secondItem="5Ce-Bk-afm" secondAttribute="height" multiplier="1:1" id="koY-uB-Kfs"/>
-                            <constraint firstItem="nxg-Dj-aZC" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="-15" id="yv8-RB-D6E"/>
+                            <constraint firstItem="r1u-vC-Cdw" firstAttribute="leading" secondItem="5Ce-Bk-afm" secondAttribute="trailing" constant="10" id="yv8-RB-D6E"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
+                        <outlet property="nextButtonConstraint" destination="2gD-td-hhb" id="6Hg-1Y-cUG"/>
                         <outlet property="nextRouteButton" destination="3FD-qE-Gyw" id="7oa-YA-7Nm"/>
+                        <outlet property="previousButtonConstraint" destination="yv8-RB-D6E" id="627-rp-o4R"/>
                         <outlet property="previousRouteButton" destination="5Ce-Bk-afm" id="Iv0-BR-Iu4"/>
                         <outlet property="showPreviousRouteButton" destination="r1u-vC-Cdw" id="ZJx-9k-wGq"/>
                         <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>

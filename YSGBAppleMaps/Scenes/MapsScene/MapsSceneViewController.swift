@@ -136,7 +136,13 @@ class MapsSceneViewController: UIViewController {
             mapView.isScrollEnabled = isShowingPreviousRoute
             mapView.showsUserLocation = !isShowingPreviousRoute
             
-            currentRouteIndex = presenter.persistedRoutesCount - 1
+            if isShowingPreviousRoute {
+                previousButtonConstraint.constant = 10
+                nextButtonConstraint.constant = 10
+            } else {
+                previousButtonConstraint.constant = -10
+                nextButtonConstraint.constant = -10
+            }
             
             UIView.animate(withDuration: 0.25) {
                 if self.isShowingPreviousRoute {
@@ -144,11 +150,13 @@ class MapsSceneViewController: UIViewController {
                     self.showPreviousRouteButton.tintColor = UIColor.systemRed
                     self.nextRouteButton.alpha = 1
                     self.previousRouteButton.alpha = 1
+                    self.view.layoutIfNeeded()
                 } else {
                     self.showPreviousRouteButton.transform = .identity
                     self.showPreviousRouteButton.tintColor = UIColor.tintColor
                     self.nextRouteButton.alpha = 0
                     self.previousRouteButton.alpha = 0
+                    self.view.layoutIfNeeded()
                 }
             }
         }
@@ -173,6 +181,10 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var previousRouteButton: CircularButton!
     @IBOutlet weak var nextRouteButton: CircularButton!
     
+    // MARK: - Constraint outlets
+    @IBOutlet weak var previousButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nextButtonConstraint: NSLayoutConstraint!
+    
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
         isTracking.toggle()
@@ -183,6 +195,9 @@ class MapsSceneViewController: UIViewController {
     }
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
+        currentRouteIndex = presenter.persistedRoutesCount - 1
+        previousRouteButton.isEnabled = true
+        
         if isTracking {
             self.yesNoAlert(title: "Прервать слежение?", message: "Для отображения сохраненных маршрутов необходимо прервать текущее слежение.") { _ in
                 self.isTracking = false
