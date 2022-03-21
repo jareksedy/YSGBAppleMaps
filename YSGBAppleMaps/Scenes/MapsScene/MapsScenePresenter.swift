@@ -46,27 +46,18 @@ final class MapsScenePresenter {
         coordinates.insert(coordinate, at: coordinates.count)
     }
     
+    func loadRoutes() {
+        let routesArray = getPersistedRoutes()
+        if routesArray.count > 0 {
+            viewDelegate?.showRoutes(routesArray: routesArray)
+        } else {
+            viewDelegate?.showNoPersistedRoutesMessage()
+        }
+    }
+    
 //    func getPersistedRoutesCount() -> Int {
 //        return realm.objects(UserPersistedRoute.self).count
 //    }
-    
-    func getPersistedRoutes() -> [[CLLocationCoordinate2D]] {
-        var routesArray: [[CLLocationCoordinate2D]] = []
-        var routesSubArray: [CLLocationCoordinate2D] = []
-        
-        let routes = Array(realm.objects(UserPersistedRoute.self)) // [UserPersistedRoute]
-        
-        routes.forEach { route in
-            let coordinatesArray = Array(route.coordinates)
-            
-            coordinatesArray.forEach { coordinate in
-                routesSubArray.append(coordinate.coordinate)
-            }
-            routesArray.append(routesSubArray)
-        }
-        
-        return routesArray
-    }
     
     // MARK: - Privte methods
     private func saveRouteToRealm(_ coordinates: [CLLocationCoordinate2D]) {
@@ -82,5 +73,23 @@ final class MapsScenePresenter {
         try! realm.write {
             realm.add(userPersistedRoute)
         }
+    }
+    
+    private func getPersistedRoutes() -> [[CLLocationCoordinate2D]] {
+        var routesArray: [[CLLocationCoordinate2D]] = []
+        var routesSubArray: [CLLocationCoordinate2D] = []
+        
+        let routes = Array(realm.objects(UserPersistedRoute.self)) // [UserPersistedRoute]
+        
+        routes.forEach { route in
+            let coordinatesArray = Array(route.coordinates)
+            
+            coordinatesArray.forEach { coordinate in
+                routesSubArray.append(coordinate.coordinate)
+            }
+            routesArray.append(routesSubArray)
+        }
+        
+        return routesArray
     }
 }

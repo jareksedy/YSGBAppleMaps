@@ -13,6 +13,8 @@ import RealmSwift
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
     func removeAllOverlays()
+    func showRoutes(routesArray: [[CLLocationCoordinate2D]])
+    func showNoPersistedRoutesMessage()
 }
 
 // MARK: - Implementation
@@ -20,14 +22,31 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
     func removeAllOverlays() {
         mapView.removeOverlays(mapView.overlays)
     }
+    
+    func showRoutes(routesArray: [[CLLocationCoordinate2D]]) {
+        guard let lastRoute = routesArray.last, let lastCoordinate = lastRoute.last else { return }
+        
+        isTracking = false
+        let myRoutePolyLine = MKPolyline(coordinates: lastRoute, count: lastRoute.count)
+        let lastLocation = CLLocation(latitude: lastCoordinate.latitude, longitude: lastCoordinate.longitude)
+        
+        mapView.addOverlay(myRoutePolyLine)
+        mapView.zoomToLocation(lastLocation, regionRadius: 1000)
+    }
+    
+    func showNoPersistedRoutesMessage() {
+        quickAlert(message: "Нет сохраненных маршрутов.") { self.isShowingPreviousRoute = false }
+    }
 }
 
 // MARK: - Additional extensions
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            if isShowingPreviousRoute == false {
             mapView.zoomToLocation(location, regionRadius: zoomValue)
             lastLocation = location
+            }
             
             if isTracking {
                 presenter.addCoordinate(location.coordinate)
@@ -124,6 +143,8 @@ class MapsSceneViewController: UIViewController {
         } else {
             isShowingPreviousRoute.toggle()
         }
+        
+        if isShowingPreviousRoute { presenter.loadRoutes() }
     }
     
     @IBAction func zoomInButtonTapped(_ sender: Any) {
