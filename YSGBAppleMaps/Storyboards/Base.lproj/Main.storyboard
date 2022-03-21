@@ -143,6 +143,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButtonConstraint" destination="jm5-bG-CJK" id="CYQ-fn-6yR"/>
                         <outlet property="deletePersistedRoutesButton" destination="l8b-i9-RMx" id="SFc-CN-zdV"/>
                         <outlet property="mapView" destination="Kge-vI-XqW" id="9mN-ff-x5i"/>
                         <outlet property="nextButtonConstraint" destination="2gD-td-hhb" id="6Hg-1Y-cUG"/>
@@ -150,6 +151,7 @@
                         <outlet property="previousButtonConstraint" destination="yv8-RB-D6E" id="627-rp-o4R"/>
                         <outlet property="previousRouteButton" destination="5Ce-Bk-afm" id="Iv0-BR-Iu4"/>
                         <outlet property="showPreviousRouteButton" destination="r1u-vC-Cdw" id="ZJx-9k-wGq"/>
+                        <outlet property="showRouteButtonConstraint" destination="hh2-vc-lga" id="JbD-dK-QI8"/>
                         <outlet property="startStopTrackingButton" destination="nxg-Dj-aZC" id="vhs-Jt-AsU"/>
                         <outlet property="zoomInButton" destination="h02-Ml-s2P" id="JLD-pP-gdN"/>
                         <outlet property="zoomInButtonConstraint" destination="5ZE-bK-f8W" id="9mA-11-tIs"/>

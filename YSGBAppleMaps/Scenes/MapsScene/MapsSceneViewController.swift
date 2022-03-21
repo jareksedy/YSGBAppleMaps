@@ -206,6 +206,11 @@ class MapsSceneViewController: UIViewController {
             self.zoomOutButton.alpha = 1
             self.view.layoutIfNeeded()
         }
+        
+        if presenter.persistedRoutesCount == 0 {
+            showPreviousRouteButton.alpha = 0
+            deletePersistedRoutesButton.alpha = 0
+        }
     }
     
     // MARK: - Outlets
@@ -224,6 +229,9 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var nextButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var zoomInButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var zoomOutButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var deleteButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showRouteButtonConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Actions
     @IBAction func startStopTrackingButtonTapped(_ sender: Any) {
@@ -232,6 +240,18 @@ class MapsSceneViewController: UIViewController {
         removeAllOverlays()
         
         if isTracking { presenter.startTracking() } else { presenter.stopTracking() }
+        
+        if !isTracking && presenter.persistedRoutesCount > 0 {
+            
+            deleteButtonConstraint.constant = 25
+            showRouteButtonConstraint.constant = 25
+            
+            UIView.animate(withDuration: 0.25) {
+                self.deletePersistedRoutesButton.alpha = 1
+                self.showPreviousRouteButton.alpha = 1
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     @IBAction func showPreviousRouteButtonTapped(_ sender: Any) {
@@ -282,7 +302,16 @@ class MapsSceneViewController: UIViewController {
     
     @IBAction func deletePersistedRoutesButtonTapped(_ sender: Any) {
         self.yesNoAlert(title: "Удалить все маршруты?", message: "Вы действительно желаете удалить все сохраненные маршруты?") { _ in
+            self.isShowingPreviousRoute = false
+            self.removeAllOverlays()
             self.presenter.deleteAllPersistedRoutes()
+            self.deleteButtonConstraint.constant = 0
+            self.showRouteButtonConstraint.constant = 0
+            UIView.animate(withDuration: 0.25) {
+                self.deletePersistedRoutesButton.alpha = 0
+                self.showPreviousRouteButton.alpha = 0
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
