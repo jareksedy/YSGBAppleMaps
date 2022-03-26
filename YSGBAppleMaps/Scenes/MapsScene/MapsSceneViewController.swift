@@ -23,6 +23,7 @@ protocol MapsSceneViewDelegate: NSObjectProtocol {
 extension MapsSceneViewController: MapsSceneViewDelegate {
     func removeAllOverlays() {
         mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
     }
     
     func showRoute(_ routesArray: [UserPersistedRoute], index: Int = 0) {
@@ -45,12 +46,13 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
             lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
             mapView.zoomToLocation(lastLocation!, regionRadius: zoomValue)
         }
-// --- точное позиционирование в границах polyline с отступами ---
-//        if let firstOverlay = mapView.overlays.first {
-//            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
-//            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
-//            zoomValue = mapView.currentRadius()
-//        }
+        
+        let distance = MKPointAnnotation()
+        distance.title = "Расстояние: \(presenter.calculateDistance(coordinatesArray)) м."
+        distance.coordinate = coordinatesArray.middle!
+        mapView.addAnnotation(distance)
+        
+        //quickAlert(message: "Расстояние: \(presenter.calculateDistance(coordinatesArray)) м.")
     }
     
     func showNoPersistedRoutesMessage() {
