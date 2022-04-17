@@ -32,6 +32,7 @@ final class MapsScenePresenter {
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.startMonitoringSignificantLocationChanges()
+        //locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = viewDelegate as? CLLocationManagerDelegate
         locationManager.startUpdatingLocation()
@@ -71,6 +72,21 @@ final class MapsScenePresenter {
         }
     }
     
+    func calculateDistance(_ coordinates: [CLLocationCoordinate2D]) -> Int {
+        guard coordinates.count >= 1 else { return 0 }
+        
+        var total: Double = 0.0
+        
+        for i in 0..<coordinates.count - 1 {
+            let start = coordinates[i]
+            let end = coordinates[i + 1]
+            let distance = distanceBetween(from: start, to: end)
+            total += distance
+        }
+        
+        return Int(total)
+    }
+    
     // MARK: - Privte methods
     private func saveRouteToRealm(_ coordinates: [CLLocationCoordinate2D]) {
         let userPersistedRoute = UserPersistedRoute()
@@ -85,5 +101,11 @@ final class MapsScenePresenter {
         try! realm.write {
             realm.add(userPersistedRoute)
         }
+    }
+    
+    private func distanceBetween(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
+        let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        return from.distance(from: to)
     }
 }

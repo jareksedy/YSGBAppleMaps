@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import RealmSwift
+import SwiftUI
 
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
@@ -23,6 +24,7 @@ protocol MapsSceneViewDelegate: NSObjectProtocol {
 extension MapsSceneViewController: MapsSceneViewDelegate {
     func removeAllOverlays() {
         mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
     }
     
     func showRoute(_ routesArray: [UserPersistedRoute], index: Int = 0) {
@@ -45,12 +47,13 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
             lastLocation = CLLocation(latitude: middle.latitude, longitude: middle.longitude)
             mapView.zoomToLocation(lastLocation!, regionRadius: zoomValue)
         }
-// --- точное позиционирование в границах polyline с отступами ---
-//        if let firstOverlay = mapView.overlays.first {
-//            let rect = mapView.overlays.reduce(firstOverlay.boundingMapRect, {$0.union($1.boundingMapRect)})
-//            mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
-//            zoomValue = mapView.currentRadius()
-//        }
+        
+        let distance = MKPointAnnotation()
+        distance.title = "Расстояние: \(presenter.calculateDistance(coordinatesArray)) м."
+        distance.coordinate = coordinatesArray.middle!
+        mapView.addAnnotation(distance)
+        
+        //quickAlert(message: "Расстояние: \(presenter.calculateDistance(coordinatesArray)) м.")
     }
     
     func showNoPersistedRoutesMessage() {
@@ -67,12 +70,32 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 }
 
 // MARK: - Additional extensions
+extension MapsSceneViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        DispatchQueue.main.async {
+            self.isShowingPreviousRoute = true
+            self.isShowingPreviousRoute = false
+            if let image = self.extractImage(from: info) { self.avatarImage = image }
+            picker.dismiss(animated: true)
+        }
+    }
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage { return image } else
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage { return image } else { return nil }
+    }
+}
+
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             if isShowingPreviousRoute == false {
-            mapView.zoomToLocation(location, regionRadius: zoomValue)
-            lastLocation = location
+                mapView.zoomToLocation(location, regionRadius: zoomValue)
+                lastLocation = location
             }
             
             if isTracking {
@@ -97,6 +120,29 @@ extension MapsSceneViewController: MKMapViewDelegate {
         
         return polyLineRenderer
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKPointAnnotation) else { return nil }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView?.layer.shadowColor = UIColor.black.cgColor
+        annotationView?.layer.shadowOpacity = 0.25
+        annotationView?.layer.shadowOffset = .zero
+        annotationView?.layer.shadowRadius = 5
+        
+        let pinImage = avatarImage ?? UIImage(named: "uni_avatar")!
+        annotationView!.image = pinImage.imageResize(sizeChange: CGSize(width: 50.0, height: 50.0)).makeRounded()
+        
+        return annotationView
+    }
 }
 
 // MARK: - View controller
@@ -108,6 +154,8 @@ class MapsSceneViewController: UIViewController {
     let realm = try! Realm()
     
     // MARK: - Properties
+    var annotationIdentifier = "AnnotationIdentifier"
+    var avatarImage: UIImage?
     var zoomValue: Double = 300
     var lastLocation: CLLocation?
     var currentRouteIndex: Int = 0 {
@@ -213,6 +261,20 @@ class MapsSceneViewController: UIViewController {
         }
     }
     
+    private func presentImagePicker() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.cameraDevice = .front
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        DispatchQueue.main.async {
+            self.present(imagePickerController, animated: true)
+        }
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startStopTrackingButton: CircularButton!
@@ -222,7 +284,7 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var previousRouteButton: CircularButton!
     @IBOutlet weak var nextRouteButton: CircularButton!
     @IBOutlet weak var deletePersistedRoutesButton: CircularButton!
-    
+    @IBOutlet weak var selfieButton: CircularButton!
     
     // MARK: - Constraint outlets
     @IBOutlet weak var previousButtonConstraint: NSLayoutConstraint!
@@ -316,6 +378,10 @@ class MapsSceneViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    @IBAction func selfieButtonTapped(_ sender: Any) {
+        presentImagePicker()
     }
     
     // MARK: - Lifecycle

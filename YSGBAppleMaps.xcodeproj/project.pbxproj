@@ -19,8 +19,8 @@
 		CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* CircularButton.swift */; };
 		CA120E5A27E649DA00694B83 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5927E649DA00694B83 /* MapKitExtensions.swift */; };
 		CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5C27E78E7E00694B83 /* Alerts.swift */; };
-		CAE2422A27E7A0A200D01823 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CAE2422927E7A0A200D01823 /* Realm */; };
-		CAE2422C27E7A0A200D01823 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAE2422B27E7A0A200D01823 /* RealmSwift */; };
+		CA8FEDFA280BE13100F5548E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FEDF9280BE13100F5548E /* Images.swift */; };
+		CAF4DEDC280BBDF400E818BD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAF4DEDB280BBDF400E818BD /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +38,7 @@
 		CA120E5627E59DD200694B83 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		CA120E5927E649DA00694B83 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		CA120E5C27E78E7E00694B83 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		CA8FEDF9280BE13100F5548E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE2422C27E7A0A200D01823 /* RealmSwift in Frameworks */,
-				CAE2422A27E7A0A200D01823 /* Realm in Frameworks */,
+				CAF4DEDC280BBDF400E818BD /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +149,7 @@
 				CA120E5927E649DA00694B83 /* MapKitExtensions.swift */,
 				CA120E5C27E78E7E00694B83 /* Alerts.swift */,
 				CA0AC25B27E8A64F008B9240 /* Generic.swift */,
+				CA8FEDF9280BE13100F5548E /* Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -170,8 +171,7 @@
 			);
 			name = YSGBAppleMaps;
 			packageProductDependencies = (
-				CAE2422927E7A0A200D01823 /* Realm */,
-				CAE2422B27E7A0A200D01823 /* RealmSwift */,
+				CAF4DEDB280BBDF400E818BD /* RealmSwift */,
 			);
 			productName = YSGBAppleMaps;
 			productReference = CA120E3627E57A9700694B83 /* YSGBAppleMaps.app */;
@@ -202,7 +202,7 @@
 			);
 			mainGroup = CA120E2D27E57A9600694B83;
 			packageReferences = (
-				CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CAF4DEDA280BBDF400E818BD /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = CA120E3727E57A9700694B83 /* Products */;
 			projectDirPath = "";
@@ -234,6 +234,7 @@
 				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
 				CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */,
+				CA8FEDFA280BE13100F5548E /* Images.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
 				CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,
@@ -465,7 +466,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		CAF4DEDA280BBDF400E818BD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -476,14 +477,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CAE2422927E7A0A200D01823 /* Realm */ = {
+		CAF4DEDB280BBDF400E818BD /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		CAE2422B27E7A0A200D01823 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAE2422827E7A0A100D01823 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = CAF4DEDA280BBDF400E818BD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
