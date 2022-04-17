@@ -19,6 +19,7 @@
 		CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5627E59DD200694B83 /* CircularButton.swift */; };
 		CA120E5A27E649DA00694B83 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5927E649DA00694B83 /* MapKitExtensions.swift */; };
 		CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5C27E78E7E00694B83 /* Alerts.swift */; };
+		CA8FEDFA280BE13100F5548E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FEDF9280BE13100F5548E /* Images.swift */; };
 		CAF4DEDC280BBDF400E818BD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAF4DEDB280BBDF400E818BD /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		CA120E5627E59DD200694B83 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		CA120E5927E649DA00694B83 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		CA120E5C27E78E7E00694B83 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		CA8FEDF9280BE13100F5548E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				CA120E5927E649DA00694B83 /* MapKitExtensions.swift */,
 				CA120E5C27E78E7E00694B83 /* Alerts.swift */,
 				CA0AC25B27E8A64F008B9240 /* Generic.swift */,
+				CA8FEDF9280BE13100F5548E /* Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
 				CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */,
+				CA8FEDFA280BE13100F5548E /* Images.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
 				CA0AC25927E81DBA008B9240 /* UserPersistedRouteModel.swift in Sources */,
 				CA120E5527E5817D00694B83 /* MapsScenePresenter.swift in Sources */,

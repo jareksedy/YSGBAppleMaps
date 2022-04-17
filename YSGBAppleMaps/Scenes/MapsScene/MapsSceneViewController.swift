@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import RealmSwift
+import SwiftUI
 
 // MARK: - Protocol
 protocol MapsSceneViewDelegate: NSObjectProtocol {
@@ -73,8 +74,8 @@ extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             if isShowingPreviousRoute == false {
-            mapView.zoomToLocation(location, regionRadius: zoomValue)
-            lastLocation = location
+                mapView.zoomToLocation(location, regionRadius: zoomValue)
+                lastLocation = location
             }
             
             if isTracking {
@@ -98,6 +99,28 @@ extension MapsSceneViewController: MKMapViewDelegate {
         polyLineRenderer.lineWidth = 10
         
         return polyLineRenderer
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKPointAnnotation {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "uni_avatar")?.imageResize(sizeChange: CGSize(width: 50.0, height: 50.0)).makeRounded()
+        annotationView!.image = pinImage
+        
+        return annotationView
     }
 }
 
