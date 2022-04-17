@@ -120,6 +120,7 @@ extension MapsSceneViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKPointAnnotation) else { return nil }
+        //guard let avatarImage = avatarImage else { return nil }
         
         let annotationIdentifier = "AnnotationIdentifier"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
