@@ -73,6 +73,8 @@ final class MapsScenePresenter {
     }
     
     func calculateDistance(_ coordinates: [CLLocationCoordinate2D]) -> Int {
+        guard coordinates.count >= 1 else { return 0 }
+        
         var total: Double = 0.0
         
         for i in 0..<coordinates.count - 1 {
