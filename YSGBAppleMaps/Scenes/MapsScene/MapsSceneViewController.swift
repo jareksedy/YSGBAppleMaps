@@ -76,9 +76,12 @@ extension MapsSceneViewController: UINavigationControllerDelegate, UIImagePicker
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = extractImage(from: info) { self.avatarImage = image }
-        if let avatarImage = avatarImage { print(avatarImage) }
-        picker.dismiss(animated: true)
+        DispatchQueue.main.async {
+            self.isShowingPreviousRoute = true
+            self.isShowingPreviousRoute = false
+            if let image = self.extractImage(from: info) { self.avatarImage = image }
+            picker.dismiss(animated: true)
+        }
     }
     
     private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
@@ -120,9 +123,7 @@ extension MapsSceneViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKPointAnnotation) else { return nil }
-        //guard let avatarImage = avatarImage else { return nil }
         
-        let annotationIdentifier = "AnnotationIdentifier"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
         
         if annotationView == nil {
@@ -131,6 +132,11 @@ extension MapsSceneViewController: MKMapViewDelegate {
         } else {
             annotationView!.annotation = annotation
         }
+        
+        annotationView?.layer.shadowColor = UIColor.black.cgColor
+        annotationView?.layer.shadowOpacity = 0.25
+        annotationView?.layer.shadowOffset = .zero
+        annotationView?.layer.shadowRadius = 5
         
         let pinImage = avatarImage ?? UIImage(named: "uni_avatar")!
         annotationView!.image = pinImage.imageResize(sizeChange: CGSize(width: 50.0, height: 50.0)).makeRounded()
@@ -148,6 +154,7 @@ class MapsSceneViewController: UIViewController {
     let realm = try! Realm()
     
     // MARK: - Properties
+    var annotationIdentifier = "AnnotationIdentifier"
     var avatarImage: UIImage?
     var zoomValue: Double = 300
     var lastLocation: CLLocation?
@@ -263,7 +270,9 @@ class MapsSceneViewController: UIViewController {
         imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
         
-        self.present(imagePickerController, animated: true)
+        DispatchQueue.main.async {
+            self.present(imagePickerController, animated: true)
+        }
     }
     
     // MARK: - Outlets
