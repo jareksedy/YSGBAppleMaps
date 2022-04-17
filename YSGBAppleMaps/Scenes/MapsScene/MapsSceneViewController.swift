@@ -102,9 +102,7 @@ extension MapsSceneViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKPointAnnotation {
-            return nil
-        }
+        guard !(annotation is MKPointAnnotation) else { return nil }
         
         let annotationIdentifier = "AnnotationIdentifier"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
@@ -247,7 +245,7 @@ class MapsSceneViewController: UIViewController {
     @IBOutlet weak var previousRouteButton: CircularButton!
     @IBOutlet weak var nextRouteButton: CircularButton!
     @IBOutlet weak var deletePersistedRoutesButton: CircularButton!
-    
+    @IBOutlet weak var selfieButton: CircularButton!
     
     // MARK: - Constraint outlets
     @IBOutlet weak var previousButtonConstraint: NSLayoutConstraint!
@@ -341,6 +339,12 @@ class MapsSceneViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    @IBAction func selfieButtonTapped(_ sender: Any) {
+        let selfieScene = self.storyboard?.instantiateViewController(withIdentifier: "SelfieScene") as! SelfieSceneViewController
+        
+        self.present(selfieScene, animated: true)
     }
     
     // MARK: - Lifecycle
