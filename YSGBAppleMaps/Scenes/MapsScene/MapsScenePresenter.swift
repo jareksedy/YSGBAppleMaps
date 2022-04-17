@@ -32,6 +32,7 @@ final class MapsScenePresenter {
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.startMonitoringSignificantLocationChanges()
+        //locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = viewDelegate as? CLLocationManagerDelegate
         locationManager.startUpdatingLocation()
