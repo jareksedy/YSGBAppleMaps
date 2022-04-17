@@ -70,6 +70,23 @@ extension MapsSceneViewController: MapsSceneViewDelegate {
 }
 
 // MARK: - Additional extensions
+extension MapsSceneViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = extractImage(from: info) { self.avatarImage = image }
+        if let avatarImage = avatarImage { print(avatarImage) }
+        picker.dismiss(animated: true)
+    }
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage { return image } else
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage { return image } else { return nil }
+    }
+}
+
 extension MapsSceneViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -110,13 +127,12 @@ extension MapsSceneViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             annotationView!.canShowCallout = true
-        }
-        else {
+        } else {
             annotationView!.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "uni_avatar")?.imageResize(sizeChange: CGSize(width: 50.0, height: 50.0)).makeRounded()
-        annotationView!.image = pinImage
+        let pinImage = avatarImage ?? UIImage(named: "uni_avatar")!
+        annotationView!.image = pinImage.imageResize(sizeChange: CGSize(width: 50.0, height: 50.0)).makeRounded()
         
         return annotationView
     }
@@ -131,6 +147,7 @@ class MapsSceneViewController: UIViewController {
     let realm = try! Realm()
     
     // MARK: - Properties
+    var avatarImage: UIImage?
     var zoomValue: Double = 300
     var lastLocation: CLLocation?
     var currentRouteIndex: Int = 0 {
@@ -234,6 +251,18 @@ class MapsSceneViewController: UIViewController {
             showPreviousRouteButton.alpha = 0
             deletePersistedRoutesButton.alpha = 0
         }
+    }
+    
+    private func presentImagePicker() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.cameraDevice = .front
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        
+        self.present(imagePickerController, animated: true)
     }
     
     // MARK: - Outlets
@@ -342,9 +371,7 @@ class MapsSceneViewController: UIViewController {
     }
     
     @IBAction func selfieButtonTapped(_ sender: Any) {
-        let selfieScene = self.storyboard?.instantiateViewController(withIdentifier: "SelfieScene") as! SelfieSceneViewController
-        
-        self.present(selfieScene, animated: true)
+        presentImagePicker()
     }
     
     // MARK: - Lifecycle

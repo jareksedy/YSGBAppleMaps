@@ -20,8 +20,6 @@
 		CA120E5A27E649DA00694B83 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5927E649DA00694B83 /* MapKitExtensions.swift */; };
 		CA120E5D27E78E7E00694B83 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA120E5C27E78E7E00694B83 /* Alerts.swift */; };
 		CA8FEDFA280BE13100F5548E /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FEDF9280BE13100F5548E /* Images.swift */; };
-		CA8FEDFC280BE82000F5548E /* SelfieSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FEDFB280BE82000F5548E /* SelfieSceneViewController.swift */; };
-		CA8FEDFE280BE82C00F5548E /* SelfieScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FEDFD280BE82C00F5548E /* SelfieScenePresenter.swift */; };
 		CAF4DEDC280BBDF400E818BD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAF4DEDB280BBDF400E818BD /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +39,6 @@
 		CA120E5927E649DA00694B83 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		CA120E5C27E78E7E00694B83 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		CA8FEDF9280BE13100F5548E /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		CA8FEDFB280BE82000F5548E /* SelfieSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieSceneViewController.swift; sourceTree = "<group>"; };
-		CA8FEDFD280BE82C00F5548E /* SelfieScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieScenePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +121,6 @@
 		CA120E5027E5812100694B83 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CA8FEDFF280BE83000F5548E /* SelfieScene */,
 				CA120E5127E5812A00694B83 /* MapsScene */,
 			);
 			path = Scenes;
@@ -157,15 +152,6 @@
 				CA8FEDF9280BE13100F5548E /* Images.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		CA8FEDFF280BE83000F5548E /* SelfieScene */ = {
-			isa = PBXGroup;
-			children = (
-				CA8FEDFB280BE82000F5548E /* SelfieSceneViewController.swift */,
-				CA8FEDFD280BE82C00F5548E /* SelfieScenePresenter.swift */,
-			);
-			path = SelfieScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,10 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8FEDFC280BE82000F5548E /* SelfieSceneViewController.swift in Sources */,
 				CA120E5727E59DD200694B83 /* CircularButton.swift in Sources */,
 				CA120E3A27E57A9700694B83 /* AppDelegate.swift in Sources */,
-				CA8FEDFE280BE82C00F5548E /* SelfieScenePresenter.swift in Sources */,
 				CA0AC25C27E8A64F008B9240 /* Generic.swift in Sources */,
 				CA8FEDFA280BE13100F5548E /* Images.swift in Sources */,
 				CA120E5327E5814700694B83 /* MapsSceneViewController.swift in Sources */,
